@@ -14,6 +14,7 @@ router.get('/agent-single', userController.AgentSingle);
 router.get('/agents-grid', userController.AgentGrid);
 router.get('/blog-single', userController.BlogSingle);
 router.get('/property-single', userController.PropertySingle);
+router.get('/login', userController.Login);
 
 
 module.exports = router;
