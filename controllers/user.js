@@ -55,3 +55,10 @@ module.exports.PropertySingle = function(req, res) {
         title: "Property_Single"
     });
 }
+module.exports.Login = function(req, res) {
+
+    return res.render('login', {
+        title: "Login"
+    });
+
+}
