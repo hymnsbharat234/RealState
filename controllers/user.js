@@ -1,64 +1,52 @@
-module.exports.home = function(req, res) {
-    // return res.end('<h2>Express server is running.....</h2>');
-    return res.render('index', {
-        title: "Home Page"
+const User = require('../models/user');
+const Property = require('../models/property');
+
+module.exports.create = function(req,res)
+{
+    User.findOne({userId : 'admin'},function(err,user)
+    {
+        if(err)
+        {
+            console.log('Error in finding user in signup');
+            return;
+        }
+        if(!user)
+        {
+            User.create(req.body,function(err,user){
+                if(err)
+                {
+                    console.log('Error in creating account in signup');
+                    return;
+                }
+                return res.redirect('back');
+            });
+        }
+
+        else{
+            return res.redirect('/admin');
+        }
     });
 }
 
-module.exports.about = function(req, res) {
 
-    return res.render('about', {
-        title: "About"
-    });
 
-}
+module.exports.destroySession = function(req,res)
+{
+    req.logout();
 
-module.exports.powerGrid = function(req, res) {
+    return res.redirect('/');
+} 
 
-    return res.render('property-grid', {
-        title: "Properties"
-    });
-}
-module.exports.BlogGrid = function(req, res) {
+module.exports.addProperty = function(req,res)
+{
+    Property.create(req.body,function(err,done)
+    {
+        if(err)
+        {
+            console.log('Error in creating property database',err);
+            return;
+        }
 
-    return res.render('blog-grid', {
-        title: "Blog"
-    });
-}
-module.exports.Contact = function(req, res) {
-
-    return res.render('Contact', {
-        title: "Contact"
-    });
-}
-module.exports.AgentSingle = function(req, res) {
-
-    return res.render('agent-single', {
-        title: "Agent_Single"
-    });
-}
-module.exports.AgentGrid = function(req, res) {
-
-    return res.render('agents-grid', {
-        title: "Agent_Grid"
-    });
-}
-module.exports.BlogSingle = function(req, res) {
-
-    return res.render('blog-single', {
-        title: "Blog_Single"
-    });
-}
-module.exports.PropertySingle = function(req, res) {
-
-    return res.render('property-single', {
-        title: "Property_Single"
-    });
-}
-module.exports.Login = function(req, res) {
-
-    return res.render('login', {
-        title: "Login"
-    });
-
+        return res.redirect('/contact');
+    })
 }

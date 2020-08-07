@@ -171,9 +171,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
+                    <%if(!locals.user){%>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
                     </li>
+                    <%}else{%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Admin Panel</a>
+                        </li>
+                    <%}%>
+
                 </ul>
             </div>
             <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
