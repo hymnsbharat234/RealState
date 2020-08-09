@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport');
+const flash = require('connect-flash');
+const customMiddleware = require('./config/middleware');
 
 const MongoStore = require('connect-mongo')(session);
 
@@ -39,6 +41,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+app.use(flash());
+app.use(customMiddleware.setFlash);
 
 
 

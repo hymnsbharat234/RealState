@@ -10,6 +10,7 @@ router.post('/create',passport.authenticate(
     {failureRedirect:'/about',}
 ),userController.create); 
 router.post('/add-property',userController.addProperty);
+router.get('/delete',userController.deleteProperty);
 router.get('/sign-out',userController.destroySession);
 
 

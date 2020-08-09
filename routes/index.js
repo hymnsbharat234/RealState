@@ -8,7 +8,7 @@ router.use('/user', require('./user'));
 
 router.get('/', homeController.home);
 router.get('/about', homeController.about);
-router.get('/property-grid', homeController.powerGrid);
+router.get('/property-grid', homeController.propertyGrid);
 router.get('/blog-grid', homeController.BlogGrid);
 router.get('/contact', homeController.Contact);
 router.get('/agent-single', homeController.AgentSingle);
@@ -20,7 +20,8 @@ router.get('/admin',passport.checkAuthentication,homeController.admin);
 router.get('/profile',passport.checkAuthentication,homeController.profile);
 router.get('/basic-table',passport.checkAuthentication,homeController.basicTable);
 router.post('/send-message', homeController.sendMessage);
-router.get('/add-property',passport.checkAuthentication,homeController.property);
+router.get('/add-property',homeController.property);
+
 
 
 
