@@ -3,13 +3,22 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Srconstruction Bootstrap Template</title>
+    <title>Srconstruction </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicons -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link href="img/favicon.png" rel="icon">
+
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -159,6 +168,17 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/property-single">Rent Machinery</a>
+                            <a class="dropdown-item" href="/blog-single">Loans</a>
+                            <a class="dropdown-item" href="/agents-grid">Sell</a>
+                            <a class="dropdown-item" href="/agent-single">Advertise With Us</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Pages
             </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -172,14 +192,14 @@
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
                     <%if(!locals.user){%>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <%}else{%>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin">Admin Panel</a>
+                            <a class="nav-link" href="/login">Login</a>
                         </li>
-                    <%}%>
+                        <%}else{%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin">Admin Panel</a>
+                            </li>
+                            <%}%>
 
                 </ul>
             </div>
@@ -194,7 +214,7 @@
     <div class="intro intro-carousel">
         <div id="carousel" class="owl-carousel owl-theme">
             <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/slide-1.jpg)">
-            <!-- <div class="carousel-item-a intro-item bg-image" style="background-image: url(https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20MEHMET%20,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1519325199/txsxcsdgeiqgtcsv4elw.jpg)"> -->
+                <!-- <div class="carousel-item-a intro-item bg-image" style="background-image: url(https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20MEHMET%20,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1519325199/txsxcsdgeiqgtcsv4elw.jpg)"> -->
                 <div class="overlay overlay-a"></div>
                 <div class="intro-content display-table">
                     <div class="table-cell">
@@ -218,8 +238,8 @@
                 </div>
             </div>
             <!-- <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/slide-2.jpg)"> -->
-         <div class="carousel-item-a intro-item bg-image" style="background-image: url( https://wallpapercave.com/wp/wp1842342.jpg )">
-            <div class="overlay overlay-a"></div>
+            <div class="carousel-item-a intro-item bg-image" style="background-image: url( https://wallpapercave.com/wp/wp1842342.jpg )">
+                <div class="overlay overlay-a"></div>
                 <div class="intro-content display-table">
                     <div class="table-cell">
                         <div class="container">
@@ -293,16 +313,61 @@
                         </div>
                         <div class="card-body-c">
                             <p class="content-c">
-                                Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+                                We provide good and comfort enivornment for the living.Morever,for a healthy lifestyle is it important that you take small and one-step at a time.
                             </p>
                         </div>
-                        <div class="card-footer-c">
+                        <!-- <div class="card-footer-c">
                             <a href="#" class="link-c link-icon">Read more
                 <span class="ion-ios-arrow-forward"></span>
               </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="card-box-c foo">
+                        <div class="card-header-c d-flex">
+                            <div class="card-box-ico">
+                                <span class="fab fa-cc-jcb"></span>
+                            </div>
+                            <div class="card-title-c align-self-center">
+                                <h2 class="title-c">Rent Machineary</h2>
+                            </div>
+                        </div>
+                        <div class="card-body-c">
+                            <p class="content-c">
+                                We provide good and comfort machineary for the construction.Morever,for the rent is it important that we should visit our website.
+                            </p>
+                        </div>
+                        <!-- <div class="card-footer-c">
+                            <a href="#" class="link-c link-icon">Read more
+                <span class="ion-ios-arrow-forward"></span>
+              </a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-box-c foo">
+                        <div class="card-header-c d-flex">
+                            <div class="card-box-ico">
+                                <span class="fas fa-bullhorn"></span>
+                            </div>
+                            <div class="card-title-c align-self-center">
+                                <h2 class="title-c">Advertise With Us</h2>
+                            </div>
+                        </div>
+                        <div class="card-body-c">
+                            <p class="content-c">
+                                We provide you for the advertisment of your product through our website with cheaper cost.
+                            </p>
+                        </div>
+                        <!-- <div class="card-footer-c">
+                            <a href="#" class="link-c link-icon">Read more
+                <span class="ion-ios-arrow-forward"></span>
+              </a>
+                        </div> -->
+                    </div>
+                </div>
+
                 <div class="col-md-4">
                     <div class="card-box-c foo">
                         <div class="card-header-c d-flex">
@@ -337,7 +402,7 @@
                         </div>
                         <div class="card-body-c">
                             <p class="content-c">
-                                Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+                                We provide you for the advertisment of your product through our website with cheaper cost.
                             </p>
                         </div>
                         <div class="card-footer-c">
