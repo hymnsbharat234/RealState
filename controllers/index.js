@@ -66,6 +66,12 @@ module.exports.Contact = function(req, res) {
         title: "Contact"
     });
 }
+module.exports.AddNews = function(req, res) {
+
+    return res.render('add-news', {
+        title: "Addnews"
+    });
+}
 module.exports.property = function(req, res) {
 
     if (!req.isAuthenticated()) {
