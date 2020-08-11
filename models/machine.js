@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
-const AVATAR_PATH = path.join('/assets/uploads/users/avatars');
-const ROOT_PATH = path.join('/uploads/users/avatars');
+const AVATAR_PATH = path.join('/assets/uploads/machine/avatars');
+const ROOT_PATH = path.join('/uploads/machine/avatars');
 
-const propertySchema = mongoose.Schema({
+const MachineSchema = mongoose.Schema({
         city: {
             type: String
         },
@@ -20,12 +20,7 @@ const propertySchema = mongoose.Schema({
         for: {
             type: String
         },
-        rooms: {
-            type: String
-        },
-        amenities: [{
-            type: String
-        }],
+
 
         address: {
             type: String,
@@ -39,10 +34,7 @@ const propertySchema = mongoose.Schema({
             type: String
 
         },
-        area: {
-            type: String
 
-        },
         avatar: [{
             type: String
         }],
@@ -62,8 +54,8 @@ let storage = multer.diskStorage({
 });
 
 //static function
-propertySchema.statics.uploadedAvatar = multer({ storage: storage }).array('avatar', 100);
-propertySchema.statics.avatarPath = AVATAR_PATH;
-propertySchema.statics.rootPath = ROOT_PATH;
-const Property = mongoose.model('Property', propertySchema);
-module.exports = Property;
+MachineSchema.statics.uploadedAvatar = multer({ storage: storage }).array('avatar', 100);
+MachineSchema.statics.avatarPath = AVATAR_PATH;
+MachineSchema.statics.rootPath = ROOT_PATH;
+const Machine = mongoose.model('Machine', MachineSchema);
+module.exports = Machine;

@@ -159,18 +159,37 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  Pages
-</a>
+              Services
+            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/rent-machinery">Rent Machinery</a>
+                            <a class="dropdown-item" href="/agent-single">Advertise With Us</a>
+                        </div>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Pages
+            </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/property-single">Property Single</a>
                             <a class="dropdown-item" href="/blog-single">Blog Single</a>
                             <a class="dropdown-item" href="/agents-grid">Agents Grid</a>
                             <a class="dropdown-item" href="/agent-single">Agent Single</a>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
+                    <%if(!locals.user){%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <%}else{%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin">Admin Panel</a>
+                            </li>
+                            <%}%>
+
                 </ul>
             </div>
             <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
@@ -213,61 +232,66 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="grid-option">
-                        <form>
-                            <select class="custom-select">
+                        <form action="/search" method="POST">
+                            <select class="custom-select" name="type" onchange='DoSubmit(this);'>
                 <option selected>All</option>
-                <option value="1">New to Old</option>
-                <option value="2">For Rent</option>
-                <option value="3">For Sale</option>
+                <option value="new">New to Old</option>
+                <option value="rent">For Rent</option>
+                <option value="sell">For Sell</option>
               </select>
+
                         </form>
                     </div>
                 </div>
                 <%for(property of properties){%>
-                <div class="col-md-4">
-                    <div class="card-box-a card-shadow" style="height:400px" width:30%;>
-                        <div class="img-box-a">
-                            <img src="<%=property.avatar[0]%>" alt="" class="img-a img-fluid">
-                        </div>
-                        <div class="card-overlay">
-                            <div class="card-overlay-a-content">
-                                <div class="card-header-a">
-                                    <h2 class="card-title-a">
-                                        <a href="#"><%=property.address%>
-                      <br /> <%=property.city%></a>
-                                    </h2>
-                                </div>
-                                <div class="card-body-a">
-                                    <div class="price-box d-flex">
-                                        <span class="price-a"><%=property.for%> | Rs <%=property.price%></span>
+                    <div class="col-md-4">
+                        <div class="card-box-a card-shadow" style="height:450px;">
+                            <div class="img-box-a">
+                                <img src="<%=property.avatar[0]%>" alt="" style="height: 450px;" class=" img-a img-fluid ">
+                            </div>
+                            <div class="card-overlay ">
+                                <div class="card-overlay-a-content ">
+                                    <div class="card-header-a ">
+                                        <h2 class="card-title-a ">
+                                            <a href="# ">
+                                                <%=property.address%>
+                                                    <br />
+                                                    <%=property.city%>
+                                            </a>
+                                        </h2>
                                     </div>
-                                    <a href="/property-single/?id=<%=property._id%>" class="link-a">Click here to view
-                    <span class="ion-ios-arrow-forward"></span>
-                  </a>
-                                </div>
-                                <div class="card-footer-a">
-                                    <ul class="card-info d-flex justify-content-around">
-                                        <%if((property.area) != ''){%>
-                                        <li>
-                                            <h4 class="card-info-title">Area</h4>
-                                            <span><%=property.area%>
+                                    <div class="card-body-a ">
+                                        <div class="price-box d-flex ">
+                                            <span class="price-a "><%=property.for%> | Rs <%=property.price%></span>
+                                        </div>
+                                        <a href="/property-single/?id=<%=property._id%>" class="link-a">Click here to view
+                                <span class="ion-ios-arrow-forward"></span>
+                                </a>
+                                    </div>
+                                    <div class="card-footer-a">
+                                        <ul class="card-info d-flex justify-content-around">
+                                            <%if((property.area) != ' '){%>
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span><%=property.area%>
                         <!-- <sup>2</sup> -->
                       </span>
-                                        </li><%}%>
-                                        <li>
-                                            <h4 class="card-info-title">Bhk</h4>
-                                            <span><%=property.rooms%></span>
-                                        </li>
-                                        
-                                    </ul>
+                                                </li>
+                                                <%}%>
+                                                    <li>
+                                                        <h4 class="card-info-title">Bhk</h4>
+                                                        <span><%=property.rooms%></span>
+                                                    </li>
+
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <%}%>
+                    <%}%>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-sm-12">
                     <nav class="pagination-a">
                         <ul class="pagination justify-content-end">
@@ -293,7 +317,7 @@
                         </ul>
                     </nav>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <!--/ Property Grid End /-->
@@ -392,19 +416,19 @@
                     <nav class="nav-footer">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="#">Home</a>
+                                <a href="/">Home</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">About</a>
+                                <a href="/about">About</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">Property</a>
+                                <a href="/property-grid">Property</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">Blog</a>
+                                <a href="/blog-grid">Blog</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">Contact</a>
+                                <a href="/contact">Contact</a>
                             </li>
                         </ul>
                     </nav>
@@ -474,6 +498,11 @@
 
     <!-- Template Main Javascript File -->
     <script src="js/main.js"></script>
+    <script>
+        function DoSubmit(sel) {
+            if (sel.val() != '0') this.form.submit();
+        }
+    </script>
 
 </body>
 

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
-const AVATAR_PATH = path.join('/assets/uploads/users/avatars');
-const ROOT_PATH = path.join('/uploads/users/avatars');
+const AVATAR_PATH = path.join('/assets/uploads/advertiser/avatars');
+const ROOT_PATH = path.join('/uploads/advertiser/avatars');
 
-const propertySchema = mongoose.Schema({
+const advertisePropertySchema = mongoose.Schema({
         city: {
             type: String
         },
@@ -62,8 +62,8 @@ let storage = multer.diskStorage({
 });
 
 //static function
-propertySchema.statics.uploadedAvatar = multer({ storage: storage }).array('avatar', 100);
-propertySchema.statics.avatarPath = AVATAR_PATH;
-propertySchema.statics.rootPath = ROOT_PATH;
-const Property = mongoose.model('Property', propertySchema);
-module.exports = Property;
+advertisePropertySchema.statics.uploadedAvatar = multer({ storage: storage }).array('avatar', 100);
+advertisePropertySchema.statics.avatarPath = AVATAR_PATH;
+advertisePropertySchema.statics.rootPath = ROOT_PATH;
+const Advertisement = mongoose.model('Advertisement', advertisePropertySchema);
+module.exports = Advertisement;

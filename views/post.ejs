@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>EstateAgency Bootstrap Template</title>
+    <title>SRcontruction</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -161,18 +161,37 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Pages
-</a>
+              Services
+            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/rent-machinery">Rent Machinery</a>
+                            <a class="dropdown-item" href="/agent-single">Advertise With Us</a>
+                        </div>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Pages
+            </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/property-single">Property Single</a>
                             <a class="dropdown-item" href="/blog-single">Blog Single</a>
                             <a class="dropdown-item" href="/agents-grid">Agents Grid</a>
                             <a class="dropdown-item" href="/agent-single">Agent Single</a>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
+                    <%if(!locals.user){%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <%}else{%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin">Admin Panel</a>
+                            </li>
+                            <%}%>
+
                 </ul>
             </div>
             <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
@@ -189,7 +208,7 @@ Pages
                 <div class="col-md-12 col-lg-8">
                     <div class="title-single-box">
                         <h1 class="title-single">Add New Property</h1>
-                        
+
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-4">
@@ -219,16 +238,17 @@ Pages
                 <form action="/user/add-property" method="post" enctype="multipart/form-data">
                     <div class="form-check">
                         <h5 style="font-size: 1rem;margin-left: -15px;">Property Type</h5>
-                        <input class="form-check-input" type="checkbox" name="type" value="House" id="Check1" >
+                        <input class="form-check-input" type="checkbox" name="type" value="House" id="Check1">
                         <label class="form-check-label" for="defaultCheck1">
                           House
                         </label></br>
-                        <input class="form-check-input" type="checkbox" name="type" value="Land" id="Check2" >
+                        <input class="form-check-input" type="checkbox" name="type" value="Land" id="Check2">
                         <label class="form-check-label" for="defaultCheck1">
                           Land
-                        </label></br></br>
-                      </div>
-                      <div class="form-check">
+                        </label></br>
+                        </br>
+                    </div>
+                    <div class="form-check">
                         <h5 style="font-size: 1rem;margin-left: -15px;">For</h5>
                         <input class="form-check-input" type="checkbox" name="for" value="Rent" id="Checks1">
                         <label class="form-check-label" for="defaultCheck1">
@@ -237,9 +257,10 @@ Pages
                         <input class="form-check-input" type="checkbox" name="for" value="Sell" id="Checks2">
                         <label class="form-check-label" for="defaultCheck1">
                           Sell
-                        </label></br></br>
-                      </div>
-                      <div>
+                        </label></br>
+                        </br>
+                    </div>
+                    <div>
                         <label for state style="margin-left: 8px;color: black;">State</label>
                         <input type="text" id="state" style="font-size: 1rem;" name="state" class="form-control form-control-lg form-control-a" placeholder="Enter state" data-rule="minlen:4" data-msg="Please enter at least 4 chars"></br>
                     </div>
@@ -255,7 +276,7 @@ Pages
                         <label for address style="margin-left: 8px;color: black;">Address</label>
                         <input type="text" id="address" style="font-size: 1rem;" name="address" class="form-control form-control-lg form-control-a" placeholder="Enter the address of the House/Appartment/Land" data-rule="minlen:4" data-msg="Please enter at least 4 chars"></br>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for price style="margin-left: 8px;color: black;">Price</label>
                         <input type="text" id="price" name="price" style="font-size: 1rem;" class="form-control form-control-lg form-control-a" placeholder="Enter the estimated price of the property" data-rule="minlen:4" data-msg="Please enter at least 4 chars"></br>
@@ -274,16 +295,17 @@ Pages
                         <label class="form-check-label" for="defaultCheck1">
                           1
                         </label></br>
-                        <input class="form-check-input" type="checkbox" value="2" id="Check2" name="rooms"  >
+                        <input class="form-check-input" type="checkbox" value="2" id="Check2" name="rooms">
                         <label class="form-check-label" for="defaultCheck1">
                           2
                         </label></br>
-                        <input class="form-check-input" type="checkbox" value="3 or more" id="Check3" name="rooms"  >
+                        <input class="form-check-input" type="checkbox" value="3 or more" id="Check3" name="rooms">
                         <label class="form-check-label" for="defaultCheck1">
                           3 or more
-                        </label></br></br>
-                      </div>
-                      <div class="form-check">
+                        </label></br>
+                        </br>
+                    </div>
+                    <div class="form-check">
                         <h5 style="font-size: 1rem;margin-left: -15px;">Amenities</h5>
                         <input class="form-check-input" type="checkbox" value="Balcony" id="defaultCheck1" name="amenities">
                         <label class="form-check-label" for="defaultCheck1">
@@ -312,23 +334,25 @@ Pages
                         <input class="form-check-input" type="checkbox" value="Outdoor Washroom" id="defaultCheck1" name="amenities">
                         <label class="form-check-label" for="defaultCheck1">
                          Outdoor Washroom
-                        </label></br></br>
-                      </div>
+                        </label></br>
+                        </br>
+                    </div>
 
                     <div class="form-group">
                         <label for image style="margin-left: 8px;color: black; margin-top:10px;">Select Image</label></br>
-                        <input type="file" id="image" name="avatar"class="form-control-file" multiple>
-                    </div></br>
+                        <input type="file" id="image" name="avatar" class="form-control-file" multiple>
+                    </div>
+                    </br>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-a" style="margin-top: 30px;margin-bottom: 20px;margin-left: 20px;width:200px">Submit</button>
                     </div>
-                    
+
                 </form>
-                   
-                </div>
-               
-              
+
             </div>
+
+
+        </div>
         </div>
     </section>
     <!--/ Property Single End /-->
@@ -427,19 +451,19 @@ Pages
                     <nav class="nav-footer">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="#">Home</a>
+                                <a href="/">Home</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">About</a>
+                                <a href="/about">About</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">Property</a>
+                                <a href="/property-grid">Property</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">Blog</a>
+                                <a href="/blog-grid">Blog</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">Contact</a>
+                                <a href="/contact">Contact</a>
                             </li>
                         </ul>
                     </nav>
@@ -511,49 +535,47 @@ Pages
     <script src="js/main.js"></script>
     <script>
         function selectOnlyThis(id) {
-            for (var i = 1;i <= 2; i++)
-            {
+            for (var i = 1; i <= 2; i++) {
                 document.getElementById("Check" + i).checked = false;
             }
-                document.getElementById(id).checked = true;
+            document.getElementById(id).checked = true;
         }
+
         function select(id) {
-            for (var i = 1;i <= 2; i++)
-            {
+            for (var i = 1; i <= 2; i++) {
                 document.getElementById("Checks" + i).checked = false;
             }
-                document.getElementById(id).checked = true;
+            document.getElementById(id).checked = true;
         }
     </script>
     <script>
-           function selectOnly(id) {
-            for (var i = 1;i <= 3; i++)
-            {
+        function selectOnly(id) {
+            for (var i = 1; i <= 3; i++) {
                 document.getElementById("Check" + i).checked = false;
             }
-                document.getElementById(id).checked = true;
+            document.getElementById(id).checked = true;
         }
     </script>
-<script>
-    <%if(flash.success && flash.success.length>0){%>
-            new Noty({
-                  theme:'relax',
-                  text: '<%=flash.success%>',
-                  type:'success',
-                  layout:'topRight',
-                  timeout:1500
-            }).show();
-    <%}%>
-    <%if(flash.error && flash.error.length>0){%>
-            new Noty({
-                  theme:'relax',
-                  text: '<%=flash.error%>',
-                  type:'error',
-                  layout:'topRight',
-                  timeout:1500
-            }).show();
-    <%}%>
-</script>
+    <script>
+        <%if(flash.success && flash.success.length>0){%>
+        new Noty({
+            theme: 'relax',
+            text: '<%=flash.success%>',
+            type: 'success',
+            layout: 'topRight',
+            timeout: 1500
+        }).show();
+        <%}%>
+        <%if(flash.error && flash.error.length>0){%>
+        new Noty({
+            theme: 'relax',
+            text: '<%=flash.error%>',
+            type: 'error',
+            layout: 'topRight',
+            timeout: 1500
+        }).show();
+        <%}%>
+    </script>
 </body>
 
 </html>

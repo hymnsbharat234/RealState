@@ -16,11 +16,18 @@ router.get('/agents-grid', homeController.AgentGrid);
 router.get('/blog-single', homeController.BlogSingle);
 router.get('/property-single', homeController.PropertySingle);
 router.get('/login', homeController.Login);
-router.get('/admin',passport.checkAuthentication,homeController.admin);
-router.get('/profile',passport.checkAuthentication,homeController.profile);
-router.get('/basic-table',passport.checkAuthentication,homeController.basicTable);
+router.get('/admin', passport.checkAuthentication, homeController.admin);
+router.get('/profile', passport.checkAuthentication, homeController.profile);
+router.get('/basic-table', passport.checkAuthentication, homeController.basicTable);
 router.post('/send-message', homeController.sendMessage);
-router.get('/add-property',homeController.property);
+router.get('/add-property', homeController.property);
+router.get('/add-advertiser', homeController.addAdvertiser);
+router.get('/add-machinery', homeController.addMachinery);
+router.get('/rent-machinery', homeController.rentMachinery);
+router.get('/machinery-single', homeController.MachinerySingle);
+router.get('/premium-property-single', homeController.singlePremium);
+
+router.post('/advertise-for-me', homeController.AddAdvertise);
 
 
 
