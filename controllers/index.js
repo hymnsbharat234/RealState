@@ -56,7 +56,7 @@ module.exports.propertyGrid = async function(req, res) {
 }
 module.exports.BlogGrid = function(req, res) {
 
-    return res.render('blog-grid', {
+    return res.render('blog-single', {
         title: "Blog"
     });
 }

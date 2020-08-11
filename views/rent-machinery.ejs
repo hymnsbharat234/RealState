@@ -227,6 +227,7 @@
     <!--/ Intro Single End /-->
 
     <!--/ Property Grid Star /-->
+    <%if(properties.length !=0){%>
     <section class="property-grid grid">
         <div class="container">
             <div class="row">
@@ -316,6 +317,11 @@
             </div> -->
         </div>
     </section>
+    <%}else{%>
+        <div class="container">
+        <h3 style="padding:0px 20px;">No Rent Machinery Posted Yet.</h3>
+    </div>
+        <%}%>
     <!--/ Property Grid End /-->
 
     <!--/ footer Star /-->
