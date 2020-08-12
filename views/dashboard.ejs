@@ -28,6 +28,8 @@
     <link href="css/admin.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -223,6 +225,7 @@
                 <!-- ============================================================== -->
                 <!-- table -->
                 <!-- ============================================================== -->
+                <%if(machines.length !=0){%>
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="white-box">
@@ -274,6 +277,9 @@
                         </div>
                     </div>
                 </div>
+                <%}else{%>
+                    <%}%>
+                <%if(properties.length !=0){%>
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="white-box">
@@ -325,6 +331,9 @@
                         </div>
                     </div>
                 </div>
+                <%}else{%>
+                    <%}%>
+                <%if(advetiserProperty.length !=0){%>
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="white-box">
@@ -367,7 +376,7 @@
                                                     <%=property.createdAt.toDateString()%>
                                                 </td>
                                                 <td><span class="text-success">Rs <%=property.price%></span></td>
-                                                <td><span><a href="/user/delete/?id=<%=property.id%>"><i class="fas fa-trash" style="margin-left: 30px; color: red;"></i></a></span></td>
+                                                <td><span><a href="/user/delete-advertiser-property/?id=<%=property.id%>"><i class="fas fa-trash" style="margin-left: 30px; color: red;"></i></a></span></td>
                                             </tr>
                                             <%l++;}%>
                                     </tbody>
@@ -376,6 +385,58 @@
                         </div>
                     </div>
                 </div>
+                <%}else{%>
+                    <%}%>
+                 <%if(news.length !=0){%>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <!-- <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
+                                <select class="form-control pull-right row b-none">
+                                    <option>March 2017</option>
+                                    <option>April 2017</option>
+                                    <option>May 2017</option>
+                                    <option>June 2017</option>
+                                    <option>July 2017</option>
+                                </select>
+                            </div> -->
+                            <h3 class="box-title">Recent News Added</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>TYPE</th>
+                                            <th>DATE</th>
+                                            <th>TITLE</th>
+                                            <th>REMOVE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%let m=1;for(property of news){%>
+                                            <tr>
+                                                <td>
+                                                    <%=m%>
+                                                </td>
+                                                <td>
+                                                    <%=property.type%>
+                                                </td>
+                                                <td class="txt-oflo">
+                                                    <%=property.createdAt.toDateString()%>
+                                                </td>
+                                                <td><span class="text-success"><%=property.title%></span></td>
+                                                <td><span><a href="/user/delete-news/?id=<%=property.id%>"><i class="fas fa-trash" style="margin-left: 30px; color: red;"></i></a></span></td>
+                                            </tr>
+                                            <%m++;}%>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%}else{%>
+                    <%}%>
+                <%if(advertisers.length !=0){%>
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="white-box">
@@ -426,6 +487,8 @@
                         </div>
                     </div>
                 </div>
+                <%}else{%>
+                    <%}%>
 
                 <!-- ============================================================== -->
                 <!-- chat-listing & recent comments -->
@@ -559,6 +622,26 @@
     <script src="js/custom.min.js"></script>
     <script src="js/dashboard1.js"></script>
     <script src="plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script>
+        <%if(flash.success && flash.success.length>0){%>
+        new Noty({
+            theme: 'relax',
+            text: '<%=flash.success%>',
+            type: 'success',
+            layout: 'topRight',
+            timeout: 1500
+        }).show();
+        <%}%>
+        <%if(flash.error && flash.error.length>0){%>
+        new Noty({
+            theme: 'relax',
+            text: '<%=flash.error%>',
+            type: 'error',
+            layout: 'topRight',
+            timeout: 1500
+        }).show();
+        <%}%>
+    </script>
 </body>
 
 </html>

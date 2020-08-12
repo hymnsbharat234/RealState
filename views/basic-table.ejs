@@ -143,6 +143,7 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /row -->
+                <%if(users.length !=0){%>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
@@ -172,6 +173,11 @@
                         </div>
                     </div>
                 </div>
+                <%}else{%>
+                    <div class="container">
+                    <h3 style="padding:0px 20px;">No one contacted Yet.</h3>
+                    </div>
+                    <%}%>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->

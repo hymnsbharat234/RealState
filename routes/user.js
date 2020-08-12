@@ -11,10 +11,14 @@ router.post('/create', passport.authenticate(
 router.post('/add-property', userController.addProperty);
 router.post('/add-machinery', userController.addMachinery);
 router.post('/add-avertiser-property', userController.addAdvertiser);
+router.post('/add-news', userController.addNews);
 
 router.get('/delete', userController.deleteProperty);
 router.get('/delete-machine', userController.deleteMachinery);
 router.get('/delete-advertiser', userController.deleteAdvertisement);
+router.get('/delete-advertiser-property', userController.deleteAdvertiserProperty);
+
+router.get('/delete-news', userController.deleteNews);
 router.get('/sign-out', userController.destroySession);
 
 

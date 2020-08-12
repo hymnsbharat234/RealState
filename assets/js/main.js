@@ -99,6 +99,21 @@
             }
         }
     });
+    $('#machine-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            769: {
+                items: 2,
+            },
+            992: {
+                items: 3,
+            }
+        }
+    });
 
     $('#premium-property-carousel').owlCarousel({
         loop: true,

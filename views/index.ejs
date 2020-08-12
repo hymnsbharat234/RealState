@@ -54,29 +54,28 @@
         </div>
         <span class="close-box-collapse right-boxed ion-ios-close"></span>
         <div class="box-collapse-wrap form">
-            <form class="form-a">
+            <form class="form-a" method="POST" action="/search-property">
                 <div class="row">
                     <div class="col-md-12 mb-2">
                         <div class="form-group">
                             <label for="Type">Keyword</label>
-                            <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+                            <input type="text" name="address" class="form-control form-control-lg form-control-a" placeholder="Keyword">
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                             <label for="Type">Type</label>
-                            <select class="form-control form-control-lg form-control-a" id="Type">
+                            <select name="type" class="form-control form-control-lg form-control-a" id="Type">
                 <option>All Type</option>
-                <option>For Rent</option>
-                <option>For Sale</option>
-                <option>Open House</option>
+                <option>Rent</option>
+                <option>Sell</option>
               </select>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                             <label for="city">City</label>
-                            <select class="form-control form-control-lg form-control-a" id="city">
+                            <select name="city" class="form-control form-control-lg form-control-a" id="city">
                 <option>All City</option>
                 <!-- <option>Alabama</option>
                 <option>Arizona</option>
@@ -87,50 +86,18 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
-                            <label for="bedrooms">Bedrooms</label>
-                            <select class="form-control form-control-lg form-control-a" id="bedrooms">
+                            <label for="bedrooms">Bhk</label>
+                            <select name="rooms" class="form-control form-control-lg form-control-a" id="bedrooms">
                 <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3 or more</option>
               </select>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="garages">Garages</label>
-                            <select class="form-control form-control-lg form-control-a" id="garages">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
-              </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="bathrooms">Bathrooms</label>
-                            <select class="form-control form-control-lg form-control-a" id="bathrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="price">Min Price</label>
-                            <select class="form-control form-control-lg form-control-a" id="price">
-                <option>Unlimite</option>
-                <option>RS50,00000</option>
-                <option>Rs100,000</option>
-                <option>Rs150,000</option>
-                <option>RS200,0000</option>
-              </select>
-                        </div>
-                    </div>
+                    
+                   
+                    
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-b">Search Property</button>
                     </div>
@@ -164,7 +131,7 @@
                         <a class="nav-link" href="/property-grid">Property</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog-grid">News</a>
+                        <a class="nav-link" href="/news">News</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -209,6 +176,7 @@
     <!--/ Nav End /-->
 
     <!--/ Carousel Star /-->
+    <%if(properties.length !=0){%>
     <div class="intro intro-carousel">
         <div id="carousel" class="owl-carousel owl-theme">
             <%for(property2 of properties){%>
@@ -221,13 +189,13 @@
                                     <div class="row ">
                                         <div class="col-lg-8 ">
                                             <div class="intro-body ">
-                                                <p class="intro-title-top ">
+                                                <p class="intro-title-top " >
                                                     <%=property2.city%> ,
                                                         <%=property2.state%>
                                                             <br>
                                                             <%=property2.pin%>
                                                 </p>
-                                                <h1 class="intro-title mb-4 ">
+                                                <h1 class="intro-title mb-4 " style="font-size: 3rem;">
                                                     <span class="color-b "><%=property2.address%></span>
                                                 </h1>
                                                 <p class="intro-subtitle intro-price ">
@@ -243,6 +211,7 @@
                     <%}%>
         </div>
     </div>
+    <%}%>
     <!--/ Carousel end /-->
 
     <!--/ Services Star /-->
@@ -252,7 +221,7 @@
                 <div class="col-md-12">
                     <div class="title-wrap d-flex justify-content-between">
                         <div class="title-box">
-                            <h2 class="title-a">Our Services</h2>
+                            <h2 class="title-a"  style="font-size: 2.5rem;">Our Services</h2>
                         </div>
                     </div>
                 </div>
@@ -359,7 +328,7 @@
                     <div class="col-md-12">
                         <div class="title-wrap d-flex justify-content-between">
                             <div class="title-box">
-                                <h2 class="title-a">Premium Properties</h2>
+                                <h2 class="title-a"style="font-size: 2.5rem;">Premium Properties</h2>
                             </div>
                             <div class="title-link">
                                 <a href="/property-grid">All Property
@@ -405,6 +374,14 @@
                           </span>
                                                     </li>
                                                     <%}%>
+                                                    <%if((property.amenities) != ''){%>
+                                                        <li>
+                                                            <h4 class="card-info-title">Amenities</h4>
+                                                            <span><%=property.amenities[0]%>
+                            <!-- <sup>2</sup> -->
+                          </span>
+                                                        </li>
+                                                        <%}%>
                                                         <li>
                                                             <h4 class="card-info-title">BHK</h4>
                                                             <span><%=property.rooms%></span>
@@ -430,14 +407,16 @@
             </div>
         </section>
         <%}%>
+       
             <!--/ Property Star /-->
+    <%if(properties.length !=0){%>
             <section class="section-property section-t8">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="title-wrap d-flex justify-content-between">
                                 <div class="title-box">
-                                    <h2 class="title-a">Latest Properties</h2>
+                                    <h2 class="title-a"style="font-size: 2.5rem;">Latest Properties</h2>
                                 </div>
                                 <div class="title-link">
                                     <a href="/property-grid">All Property
@@ -450,7 +429,7 @@
                     <div id="property-carousel" class="owl-carousel owl-theme">
                         <%for(property of properties){%>
                             <div class="carousel-item-b">
-                                <div class="card-box-a card-shadow" style="height:400px" width:30%;>
+                                <div class="card-box-a card-shadow" style="height:350px" width:30%;>
                                     <div class="img-box-a">
                                         <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class="img-a img-fluid">
                                     </div>
@@ -483,6 +462,14 @@
                           </span>
                                                         </li>
                                                         <%}%>
+                                                        <%if((property.amenities) != ''){%>
+                                                            <li>
+                                                                <h4 class="card-info-title">Amenities</h4>
+                                                                <span><%=property.amenities[0]%>
+                                <!-- <sup>2</sup> -->
+                              </span>
+                                                            </li>
+                                                            <%}%>
                                                             <li>
                                                                 <h4 class="card-info-title">BHK</h4>
                                                                 <span><%=property.rooms%></span>
@@ -507,8 +494,79 @@
                     </div>
                 </div>
             </section>
+            <%}%>
             <!--/ Property End /-->
-
+    <%if(machines.length !=0){%>
+                <section class="section-property section-t8">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="title-wrap d-flex justify-content-between">
+                                    <div class="title-box">
+                                        <h2 class="title-a"style="font-size: 2.5rem;">Our Machineries</h2>
+                                    </div>
+                                    <div class="title-link">
+                                        <a href="/property-grid">All machineries
+                        <span class="ion-ios-arrow-forward"></span>
+                      </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="machine-carousel" class="owl-carousel owl-theme">
+                            <%for(property of machines){%>
+                                <div class="carousel-item-b">
+                                    <div class="card-box-a card-shadow" style="height:400px" width:30%;>
+                                        <div class="img-box-a">
+                                            <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class=" img-a img-fluid ">
+                                        </div>
+                                        <div class="card-overlay ">
+                                            <div class="card-overlay-a-content ">
+                                                <div class="card-header-a ">
+                                                    <h2 class="card-title-a ">
+                                                        <a href="/property-single ">
+                                                            <%=property.address%>
+                                                                <br />
+                                                                <%=property.city%>
+                                                        </a>
+                                                    </h2>
+                                                </div>
+                                                <div class="card-body-a ">
+                                                    <div class="price-box d-flex ">
+                                                        <span class="price-a "><%=property.for%> | Rs <%=property.price%></span>
+                                                    </div>
+                                                    <a href="/premium-property-single/?id=<%=property._id%>" class="link-a">Click here to view
+                                        <span class="ion-ios-arrow-forward"></span>
+                                        </a>
+                                                </div>
+                                                <div class="card-footer-a">
+                                                    <ul class="card-info d-flex justify-content-around">
+                                                        <li>
+                                                            <h4 class="card-info-title">Type</h4>
+                                                            <span><%=property.type%></span>
+                                                        </li>
+                                                                
+                                                                <!-- <li>
+                                                    <h4 class="card-info-title">Bedroom</h4>
+                                                    <span>4</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Garages</h4>
+                                                    <span>1</span>
+                                                </li> -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <%}%>
+        
+                        </div>
+                    </div>
+                </section>
+                <%}%>
             <!--/ Agents Star /-->
             <section class="section-agents section-t8">
                 <div class="container">
@@ -516,7 +574,7 @@
                         <div class="col-md-12">
                             <div class="title-wrap d-flex justify-content-between">
                                 <div class="title-box">
-                                    <h2 class="title-a">Best Agents</h2>
+                                    <h2 class="title-a"style="font-size: 2.5rem;">Best Agents</h2>
                                 </div>
                                 <div class="title-link">
                                     <a href="/agents-grid">All Agents
@@ -710,13 +768,14 @@
             <!--/ Agents End /-->
 
             <!--/ News Star /-->
+            <%if(news.length !=0){%>
             <section class="section-news section-t8">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="title-wrap d-flex justify-content-between">
                                 <div class="title-box">
-                                    <h2 class="title-a">Latest News</h2>
+                                    <h2 class="title-a"style="font-size: 2.5rem;">Latest News</h2>
                                 </div>
                                 <div class="title-link">
                                     <a href="/blog-grid">All News
@@ -727,101 +786,34 @@
                         </div>
                     </div>
                     <div id="new-carousel" class="owl-carousel owl-theme">
+                        <%for(temp of news){%>
                         <div class="carousel-item-c">
                             <div class="card-box-b card-shadow news-box">
                                 <div class="img-box-b">
-                                    <img src="img/post-2.jpg" alt="" class="img-b img-fluid">
+                                    <img src="<%=temp.avatar%>" alt="" class="img-b img-fluid">
                                 </div>
                                 <div class="card-overlay">
                                     <div class="card-header-b">
                                         <div class="card-category-b">
-                                            <a href="#" class="category-b">House</a>
+                                            <a href="#" class="category-b"><%=temp.type%></a>
                                         </div>
                                         <div class="card-title-b">
                                             <h2 class="title-2">
-                                                <a href="/blog-single">House is comming
-                      <br> new</a>
+                                                <a href="#"><%=temp.title%></a>
                                             </h2>
                                         </div>
                                         <div class="card-date">
-                                            <span class="date-b">18 Sep. 2017</span>
+                                            <span class="date-b"><%=temp.createdAt.toDateString()%></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item-c">
-                            <div class="card-box-b card-shadow news-box">
-                                <div class="img-box-b">
-                                    <img src="img/post-5.jpg" alt="" class="img-b img-fluid">
-                                </div>
-                                <div class="card-overlay">
-                                    <div class="card-header-b">
-                                        <div class="card-category-b">
-                                            <a href="#" class="category-b">Travel</a>
-                                        </div>
-                                        <div class="card-title-b">
-                                            <h2 class="title-2">
-                                                <a href="/blog-single">Travel is comming
-                      <br> new</a>
-                                            </h2>
-                                        </div>
-                                        <div class="card-date">
-                                            <span class="date-b">18 Sep. 2017</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item-c">
-                            <div class="card-box-b card-shadow news-box">
-                                <div class="img-box-b">
-                                    <img src="img/post-7.jpg" alt="" class="img-b img-fluid">
-                                </div>
-                                <div class="card-overlay">
-                                    <div class="card-header-b">
-                                        <div class="card-category-b">
-                                            <a href="#" class="category-b">Park</a>
-                                        </div>
-                                        <div class="card-title-b">
-                                            <h2 class="title-2">
-                                                <a href="/blog-single">Park is comming
-                      <br> new</a>
-                                            </h2>
-                                        </div>
-                                        <div class="card-date">
-                                            <span class="date-b">18 Sep. 2017</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item-c">
-                            <div class="card-box-b card-shadow news-box">
-                                <div class="img-box-b">
-                                    <img src="img/post-3.jpg" alt="" class="img-b img-fluid">
-                                </div>
-                                <div class="card-overlay">
-                                    <div class="card-header-b">
-                                        <div class="card-category-b">
-                                            <a href="#" class="category-b">Travel</a>
-                                        </div>
-                                        <div class="card-title-b">
-                                            <h2 class="title-2">
-                                                <a href="#">Travel is comming
-                      <br> new</a>
-                                            </h2>
-                                        </div>
-                                        <div class="card-date">
-                                            <span class="date-b">18 Sep. 2017</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <%}%>
                     </div>
                 </div>
             </section>
+            <%}%>
             <!--/ News End /-->
 
             <!--/ Testimonials Star /-->
@@ -831,7 +823,7 @@
                         <div class="col-md-12">
                             <div class="title-wrap d-flex justify-content-between">
                                 <div class="title-box">
-                                    <h2 class="title-a">Testimonials</h2>
+                                    <h2 class="title-a"style="font-size: 2.5rem;">Testimonials</h2>
                                 </div>
                             </div>
                         </div>

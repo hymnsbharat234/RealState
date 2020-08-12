@@ -233,66 +233,39 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="grid-option">
-                        <form action="/filter" method="POST">
-                            <select class="custom-select" name="type" onchange='if(this.value != 0) { this.form.submit(); }'>
-                                <option selected>All</option>
-                                <option value="new">New to Old</option>
-                                <option value="Rent">For Rent</option>
-                                <option value="Sell">For Sell</option>
-                            </select>
+                        <form action="/search" method="POST">
+                            <select class="custom-select" name="type" onchange='DoSubmit(this);'>
+                <option selected>All</option>
+                <option value="new">New to Old</option>
+                <option value="rent">For Rent</option>
+                <option value="sell">For Sell</option>
+              </select>
+
                         </form>
                     </div>
                 </div>
                 <%for(property of properties){%>
                     <div class="col-md-4">
-                        <div class="card-box-a card-shadow" style="height:400px;">
+                        <div class="card-box-a card-shadow" style="height:450px;">
                             <div class="img-box-a">
-                                <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class=" img-a img-fluid ">
+                                <img src="<%=property.avatar%>" alt="" style="height: 450px;" class=" img-a img-fluid ">
                             </div>
-                            <div class="card-overlay ">
-                                <div class="card-overlay-a-content ">
-                                    <div class="card-header-a ">
-                                        <h2 class="card-title-a ">
-                                            <a href="# ">
-                                                <%=property.address%>
-                                                    <br />
-                                                    <%=property.city%>
-                                            </a>
+                            <div class="card-overlay">
+                                <div class="card-header-b">
+                                    <div class="card-category-b">
+                                        <a href="#" class="category-b"><%property.type%></a>
+                                    </div>
+                                    <div class="card-title-b">
+                                        <h2 class="title-2">
+                                            <a href="#"><%=property.title%></a>
                                         </h2>
                                     </div>
-                                    <div class="card-body-a ">
-                                        <div class="price-box d-flex ">
-                                            <span class="price-a "><%=property.for%> | Rs <%=property.price%></span>
-                                        </div>
-                                        <a href="/property-single/?id=<%=property._id%>" class="link-a">Click here to view
-                                <span class="ion-ios-arrow-forward"></span>
-                                </a>
+                                    <div class="card-date" style="font-size: 1.2rem;">
+                                        <span class="date-b"><%=property.createdAt.toDateString()%></span>
                                     </div>
-                                    <div class="card-footer-a">
-                                        <ul class="card-info d-flex justify-content-around">
-                                            <%if((property.area) != ''){%>
-                                                <li>
-                                                    <h4 class="card-info-title">Area</h4>
-                                                    <span><%=property.area%>
-                        <!-- <sup>2</sup> -->
-                      </span>
-                                                </li>
-                                                <%}%>
-                                                <%if((property.amenities) != ''){%>
-                                                    <li>
-                                                        <h4 class="card-info-title">Amenities</h4>
-                                                        <span><%=property.amenities[0]%>
-                        <!-- <sup>2</sup> -->
-                      </span>
-                                                    </li>
-                                                    <%}%>
-                                                    <li>
-                                                        <h4 class="card-info-title">Bhk</h4>
-                                                        <span><%=property.rooms%></span>
-                                                    </li>
-
-                                        </ul>
-                                    </div>
+                                    <a href="/news-single/?id=<%=property._id%>" class="link-a" style="margin-top: 25px;margin-left:140px;">Click here to view >
+                                       
+                                      </a>
                                 </div>
                             </div>
                         </div>
@@ -511,11 +484,7 @@
 
     <!-- Template Main Javascript File -->
     <script src="js/main.js"></script>
-    <script>
-        function DoSubmit(sel) {
-            if (sel.val() != '0') this.form.submit();
-        }
-    </script>
+    
 
 </body>
 

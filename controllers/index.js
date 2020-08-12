@@ -4,13 +4,22 @@ const Machine = require('../models/machine');
 const Advertise = require('../models/advertise');
 // const Advertiser = require('../models/advertiser_property');
 const Advertisement = require('../models/advertiser_property');
+const News = require('../models/news');
+
+
+
 
 module.exports.home = async function(req, res) {
     let properties = await Property.find({}).sort({ createdAt: -1 });
     let advetiserProperty = await Advertisement.find({}).sort({ createdAt: -1 });
+    let news = await News.find({}).sort({ createdAt: -1 });
+    let machines = await Machine.find({}).sort({ createdAt: -1 });
+    
     return res.render('index', {
         properties: properties,
         advetiserProperty: advetiserProperty,
+        machines:machines,
+        news:news,
         title: "Home Page"
     });
 }
@@ -30,6 +39,9 @@ module.exports.admin = async function(req, res) {
     let machines = await Machine.find({}).sort({ createdAt: -1 });
     let advertiser = await Advertise.find({}).sort({ createdAt: -1 });
     let advetiserProperty = await Advertisement.find({}).sort({ createdAt: -1 });
+    let news = await News.find({}).sort({ createdAt: -1 });
+
+    
 
 
     return res.render('dashboard', {
@@ -38,6 +50,7 @@ module.exports.admin = async function(req, res) {
         machines: machines,
         advertisers: advertiser,
         advetiserProperty: advetiserProperty,
+        news:news,
         title: "Admin Dashboard"
     });
 
@@ -55,9 +68,23 @@ module.exports.propertyGrid = async function(req, res) {
     });
 }
 module.exports.BlogGrid = function(req, res) {
-
+    
     return res.render('blog-single', {
         title: "Blog"
+    });
+}
+module.exports.News = async function(req, res) {
+    let properties = await News.find({}).sort({ createdAt: -1 });
+    return res.render('news-grid', {
+        title: "News",
+        properties: properties
+    });
+}
+module.exports.newsSingle = async function(req, res) {
+    let news = await News.findOne({_id:req.query.id});
+    return res.render('blog-single', {
+        title: "News",
+        news: news
     });
 }
 module.exports.Contact = function(req, res) {
@@ -109,12 +136,20 @@ module.exports.BlogSingle = function(req, res) {
     });
 }
 module.exports.PropertySingle = async function(req, res) {
+    try{
 
     let property = await Property.findOne({ _id: req.query.id });
+  
     return res.render('property-single', {
         property: property,
         title: "Property_Single"
     });
+}
+catch(err)
+{
+    console.log('Error',err);
+    return;
+}
 }
 module.exports.singlePremium = async function(req, res) {
 
@@ -172,6 +207,22 @@ module.exports.AddAdvertise = async function(req, res) {
     req.flash('success', 'Advertise updated');
     return res.redirect('back');
 }
+module.exports.filterProperty = async function(req, res) {
+
+    let properties;
+    if(req.body.type == 'new')
+    {
+        properties = await Property.find({}).sort({ createdAt: -1 });
+    }
+    else{
+    properties = await Property.find({for:req.body.type});
+    }
+
+    return res.render('filtered_properties',{
+        title:'Properties',
+        properties:properties
+    });
+}
 module.exports.rentMachinery = async function(req, res) {
     let properties = await Machine.find({}).sort({ createdAt: -1 });
 
@@ -187,3 +238,45 @@ module.exports.addMachinery = async function(req, res) {
         title: "add-machinery"
     });
 }
+
+module.exports.searchProperty = async function(req,res)
+ {
+
+     if(req.body.address == '')
+     {
+        let properties = await Property.find({
+            $or: [{rooms:req.body.rooms}, {type: req.body.type}] 
+        });
+        res.render('filtered_properties',{
+            title:'Properties',
+            properties:properties
+   
+        });
+
+       
+     }
+     else{
+    var selected = [];
+     let propertis = await Property.find({});
+     var addr = req.body.address.toUpperCase();
+    //  console.log(propertis);
+     
+     for(property of propertis)
+     {
+    //    if(property.address.toUpperCase().indexOf(req.body.address.toUpperCase())){ 
+        var add =  property.address.toUpperCase();
+        var temp = add.indexOf(addr);
+        if(temp>-1){
+        selected.push(property);
+        }
+        }
+        res.render('filtered_properties',{
+            title:'Properties',
+            properties:selected
+   
+        });
+     }
+
+
+    
+ }
