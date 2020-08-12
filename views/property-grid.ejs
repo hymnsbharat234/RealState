@@ -45,83 +45,50 @@
         </div>
         <span class="close-box-collapse right-boxed ion-ios-close"></span>
         <div class="box-collapse-wrap form">
-            <form class="form-a">
+            <form class="form-a" method="POST" action="/search-property">
                 <div class="row">
                     <div class="col-md-12 mb-2">
                         <div class="form-group">
                             <label for="Type">Keyword</label>
-                            <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+                            <input type="text" name="address" class="form-control form-control-lg form-control-a" placeholder="Keyword">
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                             <label for="Type">Type</label>
-                            <select class="form-control form-control-lg form-control-a" id="Type">
+                            <select name="type" class="form-control form-control-lg form-control-a" id="Type">
                 <option>All Type</option>
-                <option>For Rent</option>
-                <option>For Sale</option>
-                <option>Open House</option>
+                <option>Rent</option>
+                <option>Sell</option>
               </select>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                             <label for="city">City</label>
-                            <select class="form-control form-control-lg form-control-a" id="city">
+                            <select name="city" class="form-control form-control-lg form-control-a" id="city">
                 <option>All City</option>
-                <option>Alabama</option>
+                <!-- <option>Alabama</option>
                 <option>Arizona</option>
                 <option>California</option>
-                <option>Colorado</option>
+                <option>Colorado</option> -->
               </select>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
-                            <label for="bedrooms">Bedrooms</label>
-                            <select class="form-control form-control-lg form-control-a" id="bedrooms">
+                            <label for="bedrooms">Bhk</label>
+                            <select name="rooms" class="form-control form-control-lg form-control-a" id="bedrooms">
                 <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3 or more</option>
               </select>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="garages">Garages</label>
-                            <select class="form-control form-control-lg form-control-a" id="garages">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
-              </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="bathrooms">Bathrooms</label>
-                            <select class="form-control form-control-lg form-control-a" id="bathrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="price">Min Price</label>
-                            <select class="form-control form-control-lg form-control-a" id="price">
-                <option>Unlimite</option>
-                <option>$50,000</option>
-                <option>$100,000</option>
-                <option>$150,000</option>
-                <option>$200,000</option>
-              </select>
-                        </div>
-                    </div>
+
+
+
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-b">Search Property</button>
                     </div>
@@ -155,7 +122,7 @@
                         <a class="nav-link" href="/property-grid">Property</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog-grid">Blog</a>
+                        <a class="nav-link" href="/news">News</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -213,7 +180,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#">Home</a>
+                                <a href="/">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Properties Grid
@@ -228,78 +195,78 @@
 
     <!--/ Property Grid Star /-->
     <%if(properties.length !=0){%>
-    <section class="property-grid grid">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="grid-option">
-                        <form action="/filter" method="POST">
-                            <select class="custom-select" name="type" onchange='if(this.value != 0) { this.form.submit(); }'>
+        <section class="property-grid grid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="grid-option">
+                            <form action="/filter" method="POST">
+                                <select class="custom-select" name="type" onchange='if(this.value != 0) { this.form.submit(); }'>
                                 <option selected>All</option>
                                 <option value="new">New to Old</option>
                                 <option value="Rent">For Rent</option>
                                 <option value="Sell">For Sell</option>
                             </select>
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <%for(property of properties){%>
-                    <div class="col-md-4">
-                        <div class="card-box-a card-shadow" style="height:400px;">
-                            <div class="img-box-a">
-                                <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class=" img-a img-fluid ">
-                            </div>
-                            <div class="card-overlay ">
-                                <div class="card-overlay-a-content ">
-                                    <div class="card-header-a ">
-                                        <h2 class="card-title-a ">
-                                            <a href="# ">
-                                                <%=property.address%>
-                                                    <br />
-                                                    <%=property.city%>
-                                            </a>
-                                        </h2>
-                                    </div>
-                                    <div class="card-body-a ">
-                                        <div class="price-box d-flex ">
-                                            <span class="price-a "><%=property.for%> | Rs <%=property.price%></span>
+                    <%for(property of properties){%>
+                        <div class="col-md-4">
+                            <div class="card-box-a card-shadow" style="height:400px;">
+                                <div class="img-box-a">
+                                    <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class=" img-a img-fluid ">
+                                </div>
+                                <div class="card-overlay ">
+                                    <div class="card-overlay-a-content ">
+                                        <div class="card-header-a ">
+                                            <h2 class="card-title-a ">
+                                                <a href="# ">
+                                                    <%=property.address%>
+                                                        <br />
+                                                        <%=property.city%>
+                                                </a>
+                                            </h2>
                                         </div>
-                                        <a href="/property-single/?id=<%=property._id%>" class="link-a">Click here to view
+                                        <div class="card-body-a ">
+                                            <div class="price-box d-flex ">
+                                                <span class="price-a "><%=property.for%> | Rs <%=property.price%></span>
+                                            </div>
+                                            <a href="/property-single/?id=<%=property._id%>" class="link-a">Click here to view
                                 <span class="ion-ios-arrow-forward"></span>
                                 </a>
-                                    </div>
-                                    <div class="card-footer-a">
-                                        <ul class="card-info d-flex justify-content-around">
-                                            <%if((property.area) != ''){%>
-                                                <li>
-                                                    <h4 class="card-info-title">Area</h4>
-                                                    <span><%=property.area%>
-                        <!-- <sup>2</sup> -->
-                      </span>
-                                                </li>
-                                                <%}%>
-                                                <%if((property.amenities) != ''){%>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <%if((property.area) != ''){%>
                                                     <li>
-                                                        <h4 class="card-info-title">Amenities</h4>
-                                                        <span><%=property.amenities[0]%>
+                                                        <h4 class="card-info-title">Area</h4>
+                                                        <span><%=property.area%>
                         <!-- <sup>2</sup> -->
                       </span>
                                                     </li>
                                                     <%}%>
-                                                    <li>
-                                                        <h4 class="card-info-title">Bhk</h4>
-                                                        <span><%=property.rooms%></span>
-                                                    </li>
+                                                        <%if((property.amenities) != ''){%>
+                                                            <li>
+                                                                <h4 class="card-info-title">Amenities</h4>
+                                                                <span><%=property.amenities[0]%>
+                        <!-- <sup>2</sup> -->
+                      </span>
+                                                            </li>
+                                                            <%}%>
+                                                                <li>
+                                                                    <h4 class="card-info-title">Bhk</h4>
+                                                                    <span><%=property.rooms%></span>
+                                                                </li>
 
-                                        </ul>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <%}%>
-            </div>
-            <!-- <div class="row">
+                        <%}%>
+                </div>
+                <!-- <div class="row">
                 <div class="col-sm-12">
                     <nav class="pagination-a">
                         <ul class="pagination justify-content-end">
@@ -326,196 +293,179 @@
                     </nav>
                 </div>
             </div> -->
-        </div>
-    </section>
-    <%}else{%>
-        <div class="container">
-        <h3 style="padding:0px 20px;">No Property Posted Yet.</h3>
-        </div>
-        <%}%>
-    <!--/ Property Grid End /-->
+            </div>
+        </section>
+        <%}else{%>
+            <div class="container">
+                <h3 style="padding:0px 20px;">No Property Posted Yet.</h3>
+            </div>
+            <%}%>
+                <!--/ Property Grid End /-->
 
-    <!--/ footer Star /-->
-    <section class="section-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <div class="widget-a">
-                        <div class="w-header-a">
-                            <h3 class="w-title-a text-brand">Srconstruction</h3>
-                        </div>
-                        <div class="w-body-a">
-                            <p class="w-text-a color-text-a">
-                                We're here to help and answer any question you might have.<br>We look forward to hearing from you any types of queries.
-                            </p>
-                        </div>
-                        <div class="w-footer-a">
-                            <ul class="list-unstyled">
-                                <li class="color-a">
-                                    <span class="color-text-a">Phone .</span> Srconstruction20gmail.com</li>
-                                <li class="color-a">
-                                    <span class="color-text-a">Email .</span> +91 9304698511</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 section-md-t3">
-                    <div class="widget-a">
-                        <div class="w-header-a">
-                            <h3 class="w-title-a text-brand">The Company</h3>
-                        </div>
-                        <div class="w-body-a">
-                            <div class="w-body-a">
-                                <ul class="list-unstyled">
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
-                                    </li>
-                                    <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
-                                    </li>
-                                </ul>
+                <!--/ footer Star /-->
+                <section class="section-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <div class="widget-a">
+                                    <div class="w-header-a">
+                                        <h3 class="w-title-a text-brand">Srconstruction</h3>
+                                    </div>
+                                    <div class="w-body-a">
+                                        <p class="w-text-a color-text-a">
+                                            We're here to help and answer any question you might have.<br>We look forward to hearing from you any types of queries.
+                                        </p>
+                                    </div>
+                                    <div class="w-footer-a">
+                                        <ul class="list-unstyled">
+                                            <li class="color-a">
+                                                <span class="color-text-a">Phone .</span> Srconstruction20gmail.com</li>
+                                            <li class="color-a">
+                                                <span class="color-text-a">Email .</span> +91 9304698511</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 section-md-t3">
+                                <div class="widget-a">
+                                    <div class="w-header-a">
+                                        <h3 class="w-title-a text-brand">The Company</h3>
+                                    </div>
+                                    <div class="w-body-a">
+                                        <div class="w-body-a">
+                                            <ul class="list-unstyled">
+                                                <li class="item-list-a">
+                                                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
+                                                </li>
+                                                <li class="item-list-a">
+                                                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                                                </li>
+                                                <li class="item-list-a">
+                                                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                                                </li>
+                                                <li class="item-list-a">
+                                                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
+                                                </li>
+                                                <li class="item-list-a">
+                                                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
+                                                </li>
+                                                <li class="item-list-a">
+                                                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 section-md-t3">
+                                <div class="widget-a">
+                                    <div class="w-header-a">
+                                        <h3 class="w-title-a text-brand">Area sites</h3>
+                                    </div>
+                                    <div class="w-body-a">
+                                        <ul class="list-unstyled">
+                                            <li class="item-list-a">
+                                                <i class="fa fa-angle-right"></i> <a href="#">Dumka Town</a>
+                                            </li>
+                                            <li class="item-list-a">
+                                                <i class="fa fa-angle-right"></i> <a href="#">Station Road</a>
+                                            </li>
+                                            <li class="item-list-a">
+                                                <i class="fa fa-angle-right"></i> <a href="#">Lic colony</a>
+                                            </li>
+                                            <li class="item-list-a">
+                                                <i class="fa fa-angle-right"></i> <a href="#">Dudani</a>
+                                            </li>
+                                            <li class="item-list-a">
+                                                <i class="fa fa-angle-right"></i> <a href="#">Dumka Airport</a>
+                                            </li>
+                                            <li class="item-list-a">
+                                                <i class="fa fa-angle-right"></i> <a href="#">Main Town</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-4 section-md-t3">
-                    <div class="widget-a">
-                        <div class="w-header-a">
-                            <h3 class="w-title-a text-brand">Area sites</h3>
+                </section>
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav class="nav-footer">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="/">Home</a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="/about">About</a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="/property-grid">Property</a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="/blog-grid">Blog</a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="/contact">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="socials-a">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="https://www.facebook.com/ppriencesingh">
+                                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="https://instagram.com/prince_farao?igshid=n6j1nktcm8gv">
+                                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="copyright-footer">
+                                    <p class="copyright color-text-a">
+                                        &copy; Copyright
+                                        <span class="color-a">Hymnsbharat</span> All Rights Reserved.
+                                    </p>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="w-body-a">
-                            <ul class="list-unstyled">
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Dumka Town</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Station Road</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Lic colony</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Dudani</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Dumka Airport</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Main Town</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="nav-footer">
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a href="/">Home</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="/about">About</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="/property-grid">Property</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="/blog-grid">Blog</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="/contact">Contact</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="socials-a">
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a href="https://www.facebook.com/ppriencesingh">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://instagram.com/prince_farao?igshid=n6j1nktcm8gv">
-                                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <!-- <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-dribbble" aria-hidden="true"></i>
-                                </a>
-                            </li> -->
-                        </ul>
-                    </div>
-                    <div class="copyright-footer">
-                        <p class="copyright color-text-a">
-                            &copy; Copyright
-                            <span class="color-a">Hymnsbharat</span> All Rights Reserved.
-                        </p>
-                    </div>
-                    <div class="credits">
-                        <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
-            -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--/ Footer End /-->
+                </footer>
+                <!--/ Footer End /-->
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-    <div id="preloader"></div>
+                <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+                <div id="preloader"></div>
 
-    <!-- JavaScript Libraries -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery/jquery-migrate.min.js"></script>
-    <script src="lib/popper/popper.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/scrollreveal/scrollreveal.min.js"></script>
-    <!-- Contact Form JavaScript File -->
-    <script src="contactform/contactform.js"></script>
+                <!-- JavaScript Libraries -->
+                <script src="lib/jquery/jquery.min.js"></script>
+                <script src="lib/jquery/jquery-migrate.min.js"></script>
+                <script src="lib/popper/popper.min.js"></script>
+                <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+                <script src="lib/easing/easing.min.js"></script>
+                <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+                <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+                <!-- Contact Form JavaScript File -->
+                <script src="contactform/contactform.js"></script>
 
-    <!-- Template Main Javascript File -->
-    <script src="js/main.js"></script>
-    <script>
-        function DoSubmit(sel) {
-            if (sel.val() != '0') this.form.submit();
-        }
-    </script>
+                <!-- Template Main Javascript File -->
+                <script src="js/main.js"></script>
+                <script>
+                    function DoSubmit(sel) {
+                        if (sel.val() != '0') this.form.submit();
+                    }
+                </script>
 
 </body>
 

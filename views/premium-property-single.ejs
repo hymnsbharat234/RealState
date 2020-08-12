@@ -45,83 +45,50 @@
         </div>
         <span class="close-box-collapse right-boxed ion-ios-close"></span>
         <div class="box-collapse-wrap form">
-            <form class="form-a">
+            <form class="form-a" method="POST" action="/search-property">
                 <div class="row">
                     <div class="col-md-12 mb-2">
                         <div class="form-group">
                             <label for="Type">Keyword</label>
-                            <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+                            <input type="text" name="address" class="form-control form-control-lg form-control-a" placeholder="Keyword">
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                             <label for="Type">Type</label>
-                            <select class="form-control form-control-lg form-control-a" id="Type">
+                            <select name="type" class="form-control form-control-lg form-control-a" id="Type">
                 <option>All Type</option>
-                <option>For Rent</option>
-                <option>For Sale</option>
-                <option>Open House</option>
+                <option>Rent</option>
+                <option>Sell</option>
               </select>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                             <label for="city">City</label>
-                            <select class="form-control form-control-lg form-control-a" id="city">
+                            <select name="city" class="form-control form-control-lg form-control-a" id="city">
                 <option>All City</option>
-                <option>Alabama</option>
+                <!-- <option>Alabama</option>
                 <option>Arizona</option>
                 <option>California</option>
-                <option>Colorado</option>
+                <option>Colorado</option> -->
               </select>
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
                         <div class="form-group">
-                            <label for="bedrooms">Bedrooms</label>
-                            <select class="form-control form-control-lg form-control-a" id="bedrooms">
+                            <label for="bedrooms">Bhk</label>
+                            <select name="rooms" class="form-control form-control-lg form-control-a" id="bedrooms">
                 <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3 or more</option>
               </select>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="garages">Garages</label>
-                            <select class="form-control form-control-lg form-control-a" id="garages">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
-              </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="bathrooms">Bathrooms</label>
-                            <select class="form-control form-control-lg form-control-a" id="bathrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="form-group">
-                            <label for="price">Min Price</label>
-                            <select class="form-control form-control-lg form-control-a" id="price">
-                <option>Unlimite</option>
-                <option>$50,000</option>
-                <option>$100,000</option>
-                <option>$150,000</option>
-                <option>$200,000</option>
-              </select>
-                        </div>
-                    </div>
+
+
+
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-b">Search Property</button>
                     </div>
@@ -139,7 +106,7 @@
         <span></span>
         <span></span>
       </button>
-            <a class="navbar-brand text-brand" href="/">RS<span class="color-b">Construction</span></a>
+            <a class="navbar-brand text-brand" href="/">SR<span class="color-b">Construction</span></a>
             <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
         <span class="fa fa-search" aria-hidden="true"></span>
       </button>
@@ -155,7 +122,7 @@
                         <a class="nav-link" href="/property-grid">Property</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog-grid">Blog</a>
+                        <a class="nav-link" href="/news">News</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -166,17 +133,7 @@
                             <a class="dropdown-item" href="/agent-single">Advertise With Us</a>
                         </div>
                     </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Pages
-            </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/property-single">Property Single</a>
-                            <a class="dropdown-item" href="/blog-single">Blog Single</a>
-                            <a class="dropdown-item" href="/agents-grid">Agents Grid</a>
-                            <a class="dropdown-item" href="/agent-single">Agent Single</a>
-                        </div>
-                    </li> -->
+
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
@@ -361,57 +318,46 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-lg-4">
-                            <img src="/img/agent-4.jpg" alt="" class="img-fluid">
+                            <img src="/img/profilepic.jpg" style="height: 400px;" alt="" class="img-fluid">
                         </div>
                         <div class="col-md-6 col-lg-4">
                             <div class="property-agent">
-                                <h4 class="title-agent">Anabella Geller</h4>
+                                <h4 class="title-agent">Rahul Ranjan</h4>
                                 <p class="color-text-a">
-                                    Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                                    SRConstruction is an indian technology,engineering construction,with global operation, headquarted in Dumka,Jharkhand,India.
+                                </p>
+                                <p class="color-text-a">
+                                    It was founded by Rahul Ranjan in 2017.The comapny has bussiness insterests in basic and heavy construction,consulation of land. SR sharpened and its focus on national markets,especially in backward area of our nation to give the oppurunity demand of
+                                    the state.
+
                                 </p>
                                 <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Phone:</strong>
-                                        <span class="color-text-a">(222) 4568932</span>
-                                    </li>
+
                                     <li class="d-flex justify-content-between">
                                         <strong>Mobile:</strong>
-                                        <span class="color-text-a">777 287 378 737</span>
+                                        <span class="color-text-a">+91 9304698511</span>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <strong>Email:</strong>
-                                        <span class="color-text-a">annabella@example.com</span>
+                                        <span class="color-text-a">srconstruction20@gmail.com</span>
                                     </li>
-                                    <li class="d-flex justify-content-between">
-                                        <strong>Skype:</strong>
-                                        <span class="color-text-a">Annabela.ge</span>
-                                    </li>
+
                                 </ul>
                                 <div class="socials-a">
-                                    <ul class="list-inline">
+                                    <ul class="list-inline" style="margin-top: 50px;">
                                         <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                            <a href="https://www.facebook.com/ppriencesingh" class="link-one">
+                                                <i class="fa fa-facebook" style="font-size: 1.4rem; margin-right:15px ;" aria-hidden="true"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            <a href="#" class="link-one">
+                                                <i class="fa fa-twitter" style="font-size: 1.4rem; margin-right:15px ;" aria-hidden="true"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                            <a href="https://instagram.com/prince_farao?igshid=n6j1nktcm8gv" class="link-one">
+                                                <i class="fa fa-instagram" style="font-size: 1.4rem; margin-right:15px ;" aria-hidden="true"></i>
                                             </a>
                                         </li>
                                     </ul>
@@ -420,21 +366,34 @@
                         </div>
                         <div class="col-md-12 col-lg-4">
                             <div class="property-contact">
-                                <form class="form-a">
+                                <form class="form-a" action="/send-message" method="post">
+
+                                    <!-- <div id="sendmessage" style="display: block;">Your message has been sent. Thank you!</div> -->
+
+                                    <div id="errormessage"></div>
                                     <div class="row">
-                                        <div class="col-md-12 mb-1">
+                                        <div class="col-md-6 mb-3">
                                             <div class="form-group">
-                                                <input type="text" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
+                                                <input type="text" name="name" class="form-control form-control-lg form-control-a" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                                <div class="validation"></div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-1">
+                                        <div class="col-md-6 mb-3">
                                             <div class="form-group">
-                                                <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
+                                                <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                                                <div class="validation"></div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-1">
+                                        <div class="col-md-12 mb-3">
                                             <div class="form-group">
-                                                <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
+                                                <input type="text" name="subject" class="form-control form-control-lg form-control-a" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                                                <div class="validation"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                <textarea name="message" class="form-control" name="message" cols="45" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                                <div class="validation"></div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -549,15 +508,7 @@
                             <span class="color-a">Hymnsbharat</span> All Rights Reserved.
                         </p>
                     </div>
-                    <div class="credits">
-                        <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
-            -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                    </div>
+
                 </div>
             </div>
         </div>
