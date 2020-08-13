@@ -19,7 +19,7 @@ router.get('/login', homeController.Login);
 router.get('/news', homeController.News);
 router.post('/search-property', homeController.searchProperty);
 router.post('/filter', homeController.filterProperty);
-router.get('/news-single',homeController.newsSingle);
+router.get('/news-single', homeController.newsSingle);
 router.get('/admin', passport.checkAuthentication, homeController.admin);
 router.get('/profile', passport.checkAuthentication, homeController.profile);
 router.get('/basic-table', passport.checkAuthentication, homeController.basicTable);
@@ -31,6 +31,7 @@ router.get('/rent-machinery', homeController.rentMachinery);
 router.get('/machinery-single', homeController.MachinerySingle);
 router.get('/premium-property-single', homeController.singlePremium);
 router.get('/add-news', homeController.AddNews);
+router.get('/add-agents', homeController.AddAgents);
 
 router.post('/advertise-for-me', homeController.AddAdvertise);
 

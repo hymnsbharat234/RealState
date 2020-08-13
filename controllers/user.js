@@ -4,6 +4,8 @@ const Machine = require('../models/machine');
 const Advertise = require('../models/advertise');
 const Advertisement = require('../models/advertiser_property');
 const News = require('../models/news');
+const Agents = require('../models/agents');
+
 const fs = require('fs');
 const path = require('path');
 
@@ -83,20 +85,50 @@ module.exports.addNews = function(req, res) {
         let news = await News.create({
             type: req.body.type,
             for: req.body.for,
-            title:req.body.title,
-            news:req.body.news
+            title: req.body.title,
+            news: req.body.news
 
         });
-       
+
         let newPath = News.rootPath + '/' + req.file.filename;
         news.avatar = newPath;
-        
+
         news.save();
         req.flash('success', 'News Added Successfully');
         return res.redirect('back');
 
     });
-   
+
+
+}
+module.exports.addAgent = function(req, res) {
+
+    Agents.uploadedAvatar(req, res, async function(err) {
+        if (err) {
+            console.log('Multer Error', err);
+            return;
+        }
+        let agents = await Agents.create({
+            subject: req.body.subject,
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            instagram: req.body.instagram,
+            facebook: req.body.facebook,
+            twitter: req.body.twitter
+        });
+
+        let newPath = Agents.rootPath + '/' + req.file.filename;
+        agents.avatar = newPath;
+
+        agents.save();
+        req.flash('success', 'Agents Added Successfully');
+        console.log(agents);
+        return res.redirect('back');
+
+    });
+
+
 
 }
 module.exports.addAdvertiser = function(req, res) {
@@ -171,20 +203,19 @@ module.exports.addMachinery = function(req, res) {
 
 module.exports.deleteProperty = async function(req, res) {
 
-   
-    let property = await Property.findOne({_id: req.query.id});
-    if (property.avatar.length>1) {
-        for(pro of property.avatar)
-        {
+
+    let property = await Property.findOne({ _id: req.query.id });
+    if (property.avatar.length > 1) {
+        for (pro of property.avatar) {
             // console.log(path.join(__dirname,'..','\assets',pro))
-            fs.unlinkSync(path.join(__dirname,'..','\assets',pro));
+            fs.unlinkSync(path.join(__dirname, '..', '\assets', pro));
         }
     } else {
-        fs.unlinkSync(path.join(__dirname,'..','\assets',property.avatar[0]));
+        fs.unlinkSync(path.join(__dirname, '..', '\assets', property.avatar[0]));
         // console.log(path.join(__dirname,'..','\assets',property.avatar[0]))
     }
     let prope = await Property.deleteOne({ _id: req.query.id });
-   
+
     req.flash('success', 'Property removed Successfully');
     return res.redirect('back');
 
@@ -193,9 +224,9 @@ module.exports.deleteProperty = async function(req, res) {
 module.exports.deleteNews = async function(req, res) {
 
 
-    
-    let property = await News.findOne({_id: req.query.id});
-    fs.unlinkSync(path.join(__dirname,'..','\assets',property.avatar));
+
+    let property = await News.findOne({ _id: req.query.id });
+    fs.unlinkSync(path.join(__dirname, '..', '\assets', property.avatar));
 
     let prop = await News.deleteOne({ _id: req.query.id });
     req.flash('success', 'News removed Successfully');
@@ -204,15 +235,14 @@ module.exports.deleteNews = async function(req, res) {
 }
 
 module.exports.deleteMachinery = async function(req, res) {
-    let property = await Machine.findOne({_id: req.query.id});
-    if (property.avatar.length>1) {
-        for(pro of property.avatar)
-        {
+    let property = await Machine.findOne({ _id: req.query.id });
+    if (property.avatar.length > 1) {
+        for (pro of property.avatar) {
             // console.log(path.join(__dirname,'..','\assets',pro))
-            fs.unlinkSync(path.join(__dirname,'..','\assets',pro));
+            fs.unlinkSync(path.join(__dirname, '..', '\assets', pro));
         }
     } else {
-        fs.unlinkSync(path.join(__dirname,'..','\assets',property.avatar[0]));
+        fs.unlinkSync(path.join(__dirname, '..', '\assets', property.avatar[0]));
         // console.log(path.join(__dirname,'..','\assets',property.avatar[0]))
     }
 
@@ -223,15 +253,14 @@ module.exports.deleteMachinery = async function(req, res) {
 }
 
 module.exports.deleteAdvertiserProperty = async function(req, res) {
-    let property = await Advertisement.findOne({_id: req.query.id});
-    if (property.avatar.length>1) {
-        for(pro of property.avatar)
-        {
+    let property = await Advertisement.findOne({ _id: req.query.id });
+    if (property.avatar.length > 1) {
+        for (pro of property.avatar) {
             // console.log(path.join(__dirname,'..','\assets',pro))
-            fs.unlinkSync(path.join(__dirname,'..','\assets',pro));
+            fs.unlinkSync(path.join(__dirname, '..', '\assets', pro));
         }
     } else {
-        fs.unlinkSync(path.join(__dirname,'..','\assets',property.avatar[0]));
+        fs.unlinkSync(path.join(__dirname, '..', '\assets', property.avatar[0]));
         // console.log(path.join(__dirname,'..','\assets',property.avatar[0]))
     }
 

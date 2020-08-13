@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        <%=title%>
+        Add Agent
     </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -178,7 +178,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-8">
                     <div class="title-single-box">
-                        <h1 class="title-single">Add News</h1>
+                        <h1 class="title-single">Add Agents</h1>
 
                     </div>
                 </div>
@@ -189,10 +189,10 @@
                                 <a href="/">Home</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="/news">News</a>
+                                <a href="/add_agnts">Agents</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Add News
+                                Add Agents
                             </li>
                         </ol>
                     </nav>
@@ -206,54 +206,43 @@
     <section class="property-single nav-arrow-b">
         <div class="container">
             <div class="row" style="padding-left: 10px;">
-                <form action="/user/add-news" method="post" enctype="multipart/form-data">
+                <form action="/user/add-agent" method="post" enctype="multipart/form-data">
                     <div class="form-check">
-                        <h5 style="font-size: 1rem;margin-left: -15px;">News Topic</h5>
-                        <input class="form-check-input" type="checkbox" name="type" value="House" id="Check1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          House
-                        </label></br>
-                        <input class="form-check-input" type="checkbox" name="type" value="Land" id="Check2">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Land
-                        </label></br>
-                        <input class="form-check-input" type="checkbox" name="type" value="Rent Machinery" id="Check1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Rent Machinery
-                        </label></br>
-                        <input class="form-check-input" type="checkbox" name="type" value="Others" id="Check1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Others
-                        </label></br>
-                        </br>
+                        <label for="name" style="margin-left: -8px;color: black;font-weight:450;">Add Name</label></br>
+                        <input type="text" placeholder="Enter the Name" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="name" id="name"></br>
                     </div>
                     <div class="form-check">
-                        <h5 style="font-size: 1rem;margin-left: -15px;">For</h5>
-                        <input class="form-check-input" type="checkbox" name="for" value="Rent" id="Checks1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Rent
-                        </label></br>
-                        <input class="form-check-input" type="checkbox" name="for" value="Sell" id="Checks2">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Sell
-                        </label></br>
-                        <input class="form-check-input" type="checkbox" name="for" value="Coming Soon" id="Checks2">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Coming Soon
-                        </label></br>
+                        <label for="facebook" style="margin-left: -8px;color: black;font-weight:450;">Add facebook</label></br>
+                        <input type="text" placeholder="Enter the id" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="facebook" id="name"></br>
+                    </div>
+                    <div class="form-check">
+                        <label for="facebook" style="margin-left: -8px;color: black;font-weight:450;">Add Email</label></br>
+                        <input type="text" placeholder="Enter the Email_id" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="email" id="email"></br>
+                    </div>
+                    <div class="form-check">
+                        <label for="facebook" style="margin-left: -8px;color: black;font-weight:450;">Add Instagram</label></br>
+                        <input type="text" placeholder="Enter the Instagram_id" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="instagram" id="instagram"></br>
+                    </div>
+                    <div class="form-check">
+                        <label for="facebook" style="margin-left: -8px;color: black;font-weight:450;">Add Twiiter</label></br>
+                        <input type="text" placeholder="Enter the twitter_id" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="twitter" id="twitter"></br>
+                    </div>
+                    <div class="form-check">
+                        <label for="phone" style="margin-left: -8px;color: black;font-weight:450;">Add Phone</label></br>
+                        <input type="number" placeholder="Enter the phone_number" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="phone" id="phone"></br>
+                    </div>
 
-                        </br>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="title" style="margin-left: -8px;color: black;font-weight:450;">Add Title</label></br>
-                        <input type="text" placeholder="Enter the title" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="title" id="title"></br>
-                    </div>
+
+
+
+
                     <div class="form-group">
                         <label for image style="margin-left: 8px;color: black; margin-top:5px;font-weight:450;">Select Image</label></br>
                         <input type="file" style="margin-left: 10px;" id="image" name="avatar" class="form-control-file"></br>
                     </div>
                     <div class="col-md-12">
-                        <textarea name="news" id="news" class="form-control"></textarea>
+                        <label for="subject" style="margin-left: -8px;color: black;font-weight:450;">Add Description</label></br>
+                        <textarea name="subject" id="subject" class="form-control" style="margin-left: -8px;height:150px"></textarea>
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-a" style="margin-top: 30px;margin-bottom: 20px;margin-left: 20px;width:200px">Submit</button>
