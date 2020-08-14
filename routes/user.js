@@ -21,6 +21,8 @@ router.get('/delete-advertiser', userController.deleteAdvertisement);
 router.get('/delete-advertiser-property', userController.deleteAdvertiserProperty);
 
 router.get('/delete-news', userController.deleteNews);
+
+router.get('/delete-agent', userController.deleteAgent);
 router.get('/sign-out', userController.destroySession);
 
 

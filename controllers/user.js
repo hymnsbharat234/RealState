@@ -236,6 +236,19 @@ module.exports.deleteNews = async function(req, res) {
 
 }
 
+module.exports.deleteAgent = async function(req, res) {
+
+
+
+    let property = await Agents.findOne({ _id: req.query.id });
+    fs.unlinkSync(path.join(__dirname, '..', '\assets', property.avatar));
+
+    let prop = await Agents.deleteOne({ _id: req.query.id });
+    req.flash('success', 'Agent removed Successfully');
+    return res.redirect('back');
+
+}
+
 module.exports.deleteMachinery = async function(req, res) {
     let property = await Machine.findOne({ _id: req.query.id });
     if (property.avatar.length > 1) {

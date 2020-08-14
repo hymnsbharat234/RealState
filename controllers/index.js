@@ -57,7 +57,7 @@ module.exports.admin = async function(req, res) {
         advertisers: advertiser,
         advetiserProperty: advetiserProperty,
         news: news,
-
+        agents:agents,
         title: "Admin Dashboard"
     });
 
