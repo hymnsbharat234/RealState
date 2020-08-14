@@ -14,10 +14,12 @@ router.post('/add-avertiser-property', userController.addAdvertiser);
 router.post('/add-news', userController.addNews);
 router.post('/add-agent', userController.addAgent);
 
+
 router.get('/delete', userController.deleteProperty);
 router.get('/delete-machine', userController.deleteMachinery);
 router.get('/delete-advertiser', userController.deleteAdvertisement);
 router.get('/delete-advertiser-property', userController.deleteAdvertiserProperty);
+
 
 router.get('/delete-news', userController.deleteNews);
 router.get('/sign-out', userController.destroySession);

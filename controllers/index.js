@@ -10,12 +10,14 @@ const Agents = require('../models/agents');
 
 
 
+
 module.exports.home = async function(req, res) {
     let properties = await Property.find({}).sort({ createdAt: -1 });
     let advetiserProperty = await Advertisement.find({}).sort({ createdAt: -1 });
     let news = await News.find({}).sort({ createdAt: -1 });
     let machines = await Machine.find({}).sort({ createdAt: -1 });
     let agents = await Agents.find({}).sort({ createdAt: -1 });
+
 
     return res.render('index', {
         properties: properties,
@@ -27,9 +29,10 @@ module.exports.home = async function(req, res) {
     });
 }
 
-module.exports.about = function(req, res) {
-
+module.exports.about = async function(req, res) {
+    let teams = await Agents.find({}).sort({ createdAt: -1 });
     return res.render('about', {
+        teams: teams,
         title: "About"
     });
 
@@ -49,6 +52,7 @@ module.exports.admin = async function(req, res) {
 
 
 
+
     return res.render('dashboard', {
         users: users,
         properties: properties,
@@ -56,7 +60,6 @@ module.exports.admin = async function(req, res) {
         advertisers: advertiser,
         advetiserProperty: advetiserProperty,
         news: news,
-
         title: "Admin Dashboard"
     });
 
@@ -219,6 +222,7 @@ module.exports.AddAgents = async function(req, res) {
     // req.flash('success', 'Agents updated');
     return res.render('add_agents');
 }
+
 module.exports.filterProperty = async function(req, res) {
 
     let properties;
