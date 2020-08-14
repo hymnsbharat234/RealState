@@ -5,6 +5,7 @@ const Advertise = require('../models/advertise');
 // const Advertiser = require('../models/advertiser_property');
 const Advertisement = require('../models/advertiser_property');
 const News = require('../models/news');
+const advertiserMailer = require('../mailers/advertiserSend');
 
 
 
@@ -61,7 +62,14 @@ module.exports.admin = async function(req, res) {
 
 module.exports.propertyGrid = async function(req, res) {
 
-    let properties = await Property.find({}).sort({ createdAt: -1 });
+    let properties;
+    if(req.query.type == 'premium')
+    {
+        properties = await Advertisement.find({}).sort({ createdAt: -1 });
+    }
+    else{
+    properties = await Property.find({}).sort({ createdAt: -1 });
+    }
     return res.render('property-grid', {
         title: "Properties",
         properties: properties
@@ -137,8 +145,14 @@ module.exports.BlogSingle = function(req, res) {
 }
 module.exports.PropertySingle = async function(req, res) {
     try{
-
-    let property = await Property.findOne({ _id: req.query.id });
+        let property;
+        if(req.query.type == 'true')
+        {
+            property = await Advertisement.findOne({ _id: req.query.id });
+        }
+        else{
+            property = await Property.findOne({ _id: req.query.id });
+        }
   
     return res.render('property-single', {
         property: property,
@@ -151,14 +165,7 @@ catch(err)
     return;
 }
 }
-module.exports.singlePremium = async function(req, res) {
 
-    let property = await Advertisement.findOne({ _id: req.query.id });
-    return res.render('premium-property-single', {
-        property: property,
-        title: "Property_Single"
-    });
-}
 module.exports.MachinerySingle = async function(req, res) {
 
     let property = await Machine.findOne({ _id: req.query.id });
@@ -196,14 +203,39 @@ module.exports.Login = function(req, res) {
 
 }
 module.exports.sendMessage = async function(req, res) {
-
+try{
     let contacts = await Contact.create(req.body);
+    contacts.type = req.query.type;
+    contacts.save();
+    let data;
+    if(req.query.type == 'false')
+    {
+    data = await Property.findOne({_id:req.query.id});
+    }
+    if(req.query.type == 'true')
+    {
+    data = await Advertisement.findOne({_id:req.query.id});
+    }
+    if(req.query.type == 'machine')
+    {
+    data = await Machine.findOne({_id:req.query.id});
+    }
+    // console.log(data);
+    advertiserMailer.newAdvertisement(contacts,data);
     req.flash('success', 'Message Sent');
     return res.redirect('back');
 }
+catch(err)
+{
+    console.log('Error',err);
+    return;
+}
+}
 module.exports.AddAdvertise = async function(req, res) {
 
-    let Advertiser = await Advertise.create(req.body);
+    let advertiser = await Advertise.create(req.body);
+    advertiser.type = 'advertisement';
+    advertiserMailer.newAdvertisement(advertiser);
     req.flash('success', 'Advertise updated');
     return res.redirect('back');
 }

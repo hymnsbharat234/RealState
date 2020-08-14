@@ -11,6 +11,9 @@ const propertySchema = mongoose.Schema({
         state: {
             type: String
         },
+        premium :{
+            type:Boolean
+        },
         pin: {
             type: Number
         },

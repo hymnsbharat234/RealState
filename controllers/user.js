@@ -52,7 +52,8 @@ module.exports.addProperty = function(req, res) {
             area: req.body.area,
             city: req.body.city,
             state: req.body.state,
-            pin: req.body.pin
+            pin: req.body.pin,
+            premium:false
 
         });
         if (typeof(req.body.amenities) == 'object') {
@@ -116,7 +117,8 @@ module.exports.addAdvertiser = function(req, res) {
             area: req.body.area,
             city: req.body.city,
             state: req.body.state,
-            pin: req.body.pin
+            pin: req.body.pin,
+            premium:true
 
         });
         if (typeof(req.body.amenities) == 'object') {

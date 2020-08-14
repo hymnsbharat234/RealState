@@ -26,6 +26,9 @@ const AdvertiseSchema = mongoose.Schema({
             type: Number,
             required: true
 
+        },
+        type:{
+            type: String
         }
     }, {
         timestamps: true

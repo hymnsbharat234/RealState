@@ -29,7 +29,7 @@ router.get('/add-advertiser', homeController.addAdvertiser);
 router.get('/add-machinery', homeController.addMachinery);
 router.get('/rent-machinery', homeController.rentMachinery);
 router.get('/machinery-single', homeController.MachinerySingle);
-router.get('/premium-property-single', homeController.singlePremium);
+
 router.get('/add-news', homeController.AddNews);
 
 router.post('/advertise-for-me', homeController.AddAdvertise);

@@ -283,7 +283,7 @@
                         </div>
                         <div class="card-body-c">
                             <p class="content-c">
-                                We provide you for the advertisment of your product through our website with cheaper cost.
+                                We provide you for the advertisment of your properties for sale or rent in our website.
                             </p>
                         </div>
                         <div class="card-footer-c">
@@ -331,7 +331,7 @@
                                 <h2 class="title-a"style="font-size: 2.5rem;">Premium Properties</h2>
                             </div>
                             <div class="title-link">
-                                <a href="/property-grid">All Property
+                                <a href="/property-grid/?type=premium">All Property
                 <span class="ion-ios-arrow-forward"></span>
               </a>
                             </div>
@@ -349,7 +349,7 @@
                                     <div class="card-overlay-a-content ">
                                         <div class="card-header-a ">
                                             <h2 class="card-title-a ">
-                                                <a href="/property-single ">
+                                                <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%> ">
                                                     <%=property.address%>
                                                         <br />
                                                         <%=property.city%>
@@ -360,7 +360,7 @@
                                             <div class="price-box d-flex ">
                                                 <span class="price-a "><%=property.for%> | Rs <%=property.price%></span>
                                             </div>
-                                            <a href="/premium-property-single/?id=<%=property._id%>" class="link-a">Click here to view
+                                            <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>" class="link-a">Click here to view
                                 <span class="ion-ios-arrow-forward"></span>
                                 </a>
                                         </div>
@@ -419,7 +419,7 @@
                                     <h2 class="title-a"style="font-size: 2.5rem;">Latest Properties</h2>
                                 </div>
                                 <div class="title-link">
-                                    <a href="/property-grid">All Property
+                                    <a href="/property-grid/?type=property">All Property
                 <span class="ion-ios-arrow-forward"></span>
               </a>
                                 </div>
@@ -437,7 +437,7 @@
                                         <div class="card-overlay-a-content">
                                             <div class="card-header-a">
                                                 <h2 class="card-title-a">
-                                                    <a href="/property-single">
+                                                    <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>">
                                                         <%=property.address%>
                                                             <br />
                                                             <%=property.city%>
@@ -448,7 +448,7 @@
                                                 <div class="price-box d-flex">
                                                     <span class="price-a"><%=property.for%> | Rs <%=property.price%></span>
                                                 </div>
-                                                <a href="/property-single/?id=<%=property._id%>" class="link-a">Click here to view
+                                                <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>" class="link-a">Click here to view
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                                             </div>
