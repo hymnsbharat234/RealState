@@ -1,22 +1,16 @@
 const nodeMailer = require('../config/nodemailer');
 const path = require('path');
 
-exports.newAdvertisement = (user, property) => {
+exports.newContact = (user) => {
     let htmlString = nodeMailer.renderTemplate({
-        user: user,
-        property: property
+        user: user
     }, '/advertiser/advertisement.ejs');
 
     nodeMailer.transporter.sendMail({
         from: 'SRConstruction',
         to: 'hymnsbharat2019@gmail.com',
         subject: "SRConstruction Alerts",
-        html: htmlString,
-        attachments: [{
-            filename: 'avatar',
-            path: path.join(__dirname, '../', '/assets', property.avatar[0]),
-            cid: 'logo'
-        }]
+        html: htmlString
     }, (err, info) => {
         if (err) {
             console.log('Error in sending mail', err);

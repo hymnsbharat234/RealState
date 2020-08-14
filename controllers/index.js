@@ -6,6 +6,9 @@ const Advertise = require('../models/advertise');
 const Advertisement = require('../models/advertiser_property');
 const News = require('../models/news');
 const advertiserMailer = require('../mailers/advertiserSend');
+const contactMailer = require('../mailers/contactSend');
+const path = require('path');
+
 const Agents = require('../models/agents');
 
 
@@ -19,6 +22,7 @@ module.exports.home = async function(req, res) {
     let machines = await Machine.find({}).sort({ createdAt: -1 });
     let agents = await Agents.find({}).sort({ createdAt: -1 });
 
+    console.log(path.join(__dirname, '..', '/routes/index.js'));
 
     return res.render('index', {
         properties: properties,
@@ -213,20 +217,31 @@ module.exports.sendMessage = async function(req, res) {
         let contacts = await Contact.create(req.body);
         contacts.type = req.query.type;
         contacts.save();
-        let data;
+
         if (req.query.type == 'false') {
-            data = await Property.findOne({ _id: req.query.id });
+            let data = await Property.findOne({ _id: req.query.id });
+            advertiserMailer.newAdvertisement(contacts, data);
+            req.flash('success', 'Message Sent');
+            return res.redirect('back');
         }
         if (req.query.type == 'true') {
-            data = await Advertisement.findOne({ _id: req.query.id });
+            let data = await Advertisement.findOne({ _id: req.query.id });
+            advertiserMailer.newAdvertisement(contacts, data);
+            req.flash('success', 'Message Sent');
+            return res.redirect('back');
         }
         if (req.query.type == 'machine') {
-            data = await Machine.findOne({ _id: req.query.id });
+            let data = await Machine.findOne({ _id: req.query.id });
+            advertiserMailer.newAdvertisement(contacts, data);
+            req.flash('success', 'Message Sent');
+            return res.redirect('back');
+        } else {
+            contactMailer.newContact(contacts);
+            req.flash('success', 'Message Sent');
+            return res.redirect('back');
         }
-        // console.log(data);
-        advertiserMailer.newAdvertisement(contacts, data);
-        req.flash('success', 'Message Sent');
-        return res.redirect('back');
+
+
     } catch (err) {
         console.log('Error', err);
         return;
