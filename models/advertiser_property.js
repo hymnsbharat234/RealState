@@ -8,6 +8,9 @@ const advertisePropertySchema = mongoose.Schema({
         city: {
             type: String
         },
+        premium :{
+            type:Boolean
+        },
         state: {
             type: String
         },

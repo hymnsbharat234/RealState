@@ -54,7 +54,8 @@ module.exports.addProperty = function(req, res) {
             area: req.body.area,
             city: req.body.city,
             state: req.body.state,
-            pin: req.body.pin
+            pin: req.body.pin,
+            premium:false
 
         });
         if (typeof(req.body.amenities) == 'object') {
@@ -148,7 +149,8 @@ module.exports.addAdvertiser = function(req, res) {
             area: req.body.area,
             city: req.body.city,
             state: req.body.state,
-            pin: req.body.pin
+            pin: req.body.pin,
+            premium:true
 
         });
         if (typeof(req.body.amenities) == 'object') {
@@ -230,6 +232,19 @@ module.exports.deleteNews = async function(req, res) {
 
     let prop = await News.deleteOne({ _id: req.query.id });
     req.flash('success', 'News removed Successfully');
+    return res.redirect('back');
+
+}
+
+module.exports.deleteAgent = async function(req, res) {
+
+
+
+    let property = await Agents.findOne({ _id: req.query.id });
+    fs.unlinkSync(path.join(__dirname, '..', '\assets', property.avatar));
+
+    let prop = await Agents.deleteOne({ _id: req.query.id });
+    req.flash('success', 'Agent removed Successfully');
     return res.redirect('back');
 
 }

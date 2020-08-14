@@ -5,8 +5,9 @@ const userController = require('../controllers/user');
 
 const router = express.Router();
 
+// router.post('/create', userController.create);
 router.post('/create', passport.authenticate(
-    'local', { failureRedirect: '/', }
+    'local', { failureRedirect: '/login', }
 ), userController.create);
 router.post('/add-property', userController.addProperty);
 router.post('/add-machinery', userController.addMachinery);
@@ -22,6 +23,8 @@ router.get('/delete-advertiser-property', userController.deleteAdvertiserPropert
 
 
 router.get('/delete-news', userController.deleteNews);
+
+router.get('/delete-agent', userController.deleteAgent);
 router.get('/sign-out', userController.destroySession);
 
 

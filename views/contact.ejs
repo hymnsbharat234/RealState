@@ -209,7 +209,7 @@
                 <div class="col-sm-12 section-t8">
                     <div class="row">
                         <div class="col-md-7">
-                            <form class="form-a" action="/send-message" method="post">
+                            <form class="form-a" action="/send-message/?type=contact" method="post">
 
                                 <!-- <div id="sendmessage" style="display: block;">Your message has been sent. Thank you!</div> -->
 
@@ -224,6 +224,12 @@
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
                                             <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                                            <div class="validation"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">
+                                            <input name="phone" type="number" class="form-control form-control-lg form-control-a" placeholder="Your Phone No." data-rule="email" data-msg="Please enter your mobile no.">
                                             <div class="validation"></div>
                                         </div>
                                     </div>
