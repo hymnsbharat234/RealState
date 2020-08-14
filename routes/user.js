@@ -13,6 +13,7 @@ router.post('/add-property', userController.addProperty);
 router.post('/add-machinery', userController.addMachinery);
 router.post('/add-avertiser-property', userController.addAdvertiser);
 router.post('/add-news', userController.addNews);
+router.post('/add-agent', userController.addAgent);
 
 router.get('/delete', userController.deleteProperty);
 router.get('/delete-machine', userController.deleteMachinery);

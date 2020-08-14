@@ -2,10 +2,15 @@
 <html lang="en">
 
 <head>
-    <title>Login </title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- -------------------------------------------------------------------------------- -->
+    <meta charset="utf-8">
+    <title>
+        Add Agent
+    </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
     <link href="img/favicon.png" rel="icon">
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -23,35 +28,83 @@
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
-    <!-- ----------------------------------------------------------------------------------- -->
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.1/standard-all/ckeditor.js"></script>
 
-    <!--===============================================================================================-->
+    <!-- =======================================================
+    Theme Name: EstateAgency
+    Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
 </head>
 
 <body>
+
+
+    <div class="click-closed"></div>
+    <!--/ Form Search Star /-->
+    <div class="box-collapse">
+        <div class="title-box-d">
+            <h3 class="title-d">Search Property</h3>
+        </div>
+        <span class="close-box-collapse right-boxed ion-ios-close"></span>
+        <div class="box-collapse-wrap form">
+            <form class="form-a" method="POST" action="/search-property">
+                <div class="row">
+                    <div class="col-md-12 mb-2">
+                        <div class="form-group">
+                            <label for="Type">Keyword</label>
+                            <input type="text" name="address" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label for="Type">Type</label>
+                            <select name="type" class="form-control form-control-lg form-control-a" id="Type">
+                <option>All Type</option>
+                <option>Rent</option>
+                <option>Sell</option>
+              </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <select name="city" class="form-control form-control-lg form-control-a" id="city">
+                <option>All City</option>
+                <!-- <option>Alabama</option>
+                <option>Arizona</option>
+                <option>California</option>
+                <option>Colorado</option> -->
+              </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label for="bedrooms">Bhk</label>
+                            <select name="rooms" class="form-control form-control-lg form-control-a" id="bedrooms">
+                <option>Any</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3 or more</option>
+              </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-b">Search Property</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/ Form Search End /-->
+
+    <!--/ Nav Star /-->
     <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
         <div class="container">
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,52 +170,102 @@
       </button>
         </div>
     </nav>
+    <!--/ Nav End /-->
 
-    <div class="limiter">
-        <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
-            <div class="wrap-login100" style="margin-top: -50px;">
-                <form class="login100-form validate-form" method="POST" action="/user/create">
-                    <span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
-					</span>
+    <!--/ Intro Single star /-->
+    <section class="intro-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8">
+                    <div class="title-single-box">
+                        <h1 class="title-single">Add Agents</h1>
 
-                    <span class="login100-form-title p-b-34 p-t-27">
-						Log in
-					</span>
-
-                    <div class="wrap-input100 validate-input" data-validate="Enter username">
-                        <input class="input100" type="text" name="userId" placeholder="Username">
-                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
                     </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <input class="input100" type="password" name="password" placeholder="Password">
-                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                    </div>
-
-
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-							Login
-						</button>
-                    </div>
-
-                    <!-- <div class="text-center p-t-90">
-                        <a class="txt1" href="#">
-							Forgot Password?
-						</a>
-                    </div> -->
-                </form>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="/add_agnts">Agents</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Add Agents
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!--/ Intro Single End /-->
+
+    <!--/ Property Single Star /-->
+    <section class="property-single nav-arrow-b">
+        <div class="container">
+            <div class="row" style="padding-left: 10px;">
+                <form action="/user/add-agent" method="post" enctype="multipart/form-data">
+                    <div class="form-check">
+                        <label for="name" style="margin-left: -8px;color: black;font-weight:450;">Add Name</label></br>
+                        <input type="text" placeholder="Enter the Name" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="name" id="name"></br>
+                    </div>
+                    <div class="form-check">
+                        <label for="facebook" style="margin-left: -8px;color: black;font-weight:450;">Add facebook</label></br>
+                        <input type="text" placeholder="Enter the id" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="facebook" id="name"></br>
+                    </div>
+                    <div class="form-check">
+                        <label for="facebook" style="margin-left: -8px;color: black;font-weight:450;">Add Email</label></br>
+                        <input type="text" placeholder="Enter the Email_id" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="email" id="email"></br>
+                    </div>
+                    <div class="form-check">
+                        <label for="facebook" style="margin-left: -8px;color: black;font-weight:450;">Add Instagram</label></br>
+                        <input type="text" placeholder="Enter the Instagram_id" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="instagram" id="instagram"></br>
+                    </div>
+                    <div class="form-check">
+                        <label for="facebook" style="margin-left: -8px;color: black;font-weight:450;">Add Twiiter</label></br>
+                        <input type="text" placeholder="Enter the twitter_id" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="twitter" id="twitter"></br>
+                    </div>
+                    <div class="form-check">
+                        <label for="phone" style="margin-left: -8px;color: black;font-weight:450;">Add Phone</label></br>
+                        <input type="number" placeholder="Enter the phone_number" style="margin-left: -8px;" class="form-control form-control-lg form-control-a" name="phone" id="phone"></br>
+                    </div>
+
+
+
+
+
+                    <div class="form-group">
+                        <label for image style="margin-left: 8px;color: black; margin-top:5px;font-weight:450;">Select Image</label></br>
+                        <input type="file" style="margin-left: 10px;" id="image" name="avatar" class="form-control-file"></br>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="subject" style="margin-left: -8px;color: black;font-weight:450;">Add Description</label></br>
+                        <textarea name="subject" id="subject" class="form-control" style="margin-left: -8px;height:150px"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-a" style="margin-top: 30px;margin-bottom: 20px;margin-left: 20px;width:200px">Submit</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+        </div>
+        </div>
+    </section>
+    <!--/ Property Single End /-->
+
+    <!--/ footer Star /-->
     <section class="section-footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-4">
                     <div class="widget-a">
                         <div class="w-header-a">
-                            <h3 class="w-title-a text-brand">SrConstruction</h3>
+                            <h3 class="w-title-a text-brand">Srconstruction</h3>
                         </div>
                         <div class="w-body-a">
                             <p class="w-text-a color-text-a">
@@ -172,7 +275,7 @@
                         <div class="w-footer-a">
                             <ul class="list-unstyled">
                                 <li class="color-a">
-                                    <span class="color-text-a">Phone .</span> Srcontruction20@gmail.com</li>
+                                    <span class="color-text-a">Phone .</span> Srconstruction20gmail.com</li>
                                 <li class="color-a">
                                     <span class="color-text-a">Email .</span> +91 9304698511</li>
                             </ul>
@@ -298,9 +401,12 @@
             </div>
         </div>
     </footer>
+    <!--/ Footer End /-->
 
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="preloader"></div>
 
-    <div id="dropDownSelect1"></div>
+    <!-- JavaScript Libraries -->
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/jquery/jquery-migrate.min.js"></script>
     <script src="lib/popper/popper.min.js"></script>
@@ -314,22 +420,34 @@
     <!-- Template Main Javascript File -->
     <script src="js/main.js"></script>
 
-    <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-    <script src="js/login.js"></script>
+    <script>
+        CKEDITOR.replace('news', {
+
+        });
+    </script>
+    <script>
+        function selectOnlyThis(id) {
+            for (var i = 1; i <= 2; i++) {
+                document.getElementById("Check" + i).checked = false;
+            }
+            document.getElementById(id).checked = true;
+        }
+
+        function select(id) {
+            for (var i = 1; i <= 2; i++) {
+                document.getElementById("Checks" + i).checked = false;
+            }
+            document.getElementById(id).checked = true;
+        }
+    </script>
+    <script>
+        function selectOnly(id) {
+            for (var i = 1; i <= 3; i++) {
+                document.getElementById("Check" + i).checked = false;
+            }
+            document.getElementById(id).checked = true;
+        }
+    </script>
     <script>
         <%if(flash.success && flash.success.length>0){%>
         new Noty({
@@ -350,7 +468,6 @@
         }).show();
         <%}%>
     </script>
-
 </body>
 
 </html>
