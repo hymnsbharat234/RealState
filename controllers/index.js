@@ -7,7 +7,7 @@ const Advertisement = require('../models/advertiser_property');
 const News = require('../models/news');
 const advertiserMailer = require('../mailers/advertiserSend');
 const contactMailer = require('../mailers/contactSend');
-const path = require('path');
+
 
 const Agents = require('../models/agents');
 
@@ -22,7 +22,6 @@ module.exports.home = async function(req, res) {
     let machines = await Machine.find({}).sort({ createdAt: -1 });
     let agents = await Agents.find({}).sort({ createdAt: -1 });
 
-    console.log(path.join(__dirname, '..', '/routes/index.js'));
 
     return res.render('index', {
         properties: properties,
@@ -235,14 +234,14 @@ module.exports.sendMessage = async function(req, res) {
             advertiserMailer.newAdvertisement(contacts, data);
             req.flash('success', 'Message Sent');
             return res.redirect('back');
-        } else {
+        }
+        if (req.query.type == 'contact') { 
             contactMailer.newContact(contacts);
             req.flash('success', 'Message Sent');
             return res.redirect('back');
         }
 
-
-    } catch (err) {
+ } catch (err) {
         console.log('Error', err);
         return;
     }
@@ -286,7 +285,6 @@ module.exports.rentMachinery = async function(req, res) {
 }
 module.exports.addMachinery = async function(req, res) {
 
-    req.flash('success', 'Machinery Added');
     return res.render('add-machinery', {
         title: "add-machinery"
     });
@@ -308,10 +306,20 @@ module.exports.searchProperty = async function(req, res) {
     } else {
         var selected = [];
         let propertis = await Property.find({});
+        let premium = await Advertisement.find({});
         var addr = req.body.address.toUpperCase();
         //  console.log(propertis);
 
         for (property of propertis) {
+            //    if(property.address.toUpperCase().indexOf(req.body.address.toUpperCase())){ 
+            var add = property.address.toUpperCase();
+            var temp = add.indexOf(addr);
+            if (temp > -1) {
+                selected.push(property);
+            }
+        }
+        
+        for (property of premium) {
             //    if(property.address.toUpperCase().indexOf(req.body.address.toUpperCase())){ 
             var add = property.address.toUpperCase();
             var temp = add.indexOf(addr);

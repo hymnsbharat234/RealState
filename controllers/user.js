@@ -212,10 +212,11 @@ module.exports.deleteProperty = async function(req, res) {
             // console.log(path.join(__dirname,'..','\assets',pro))
             fs.unlinkSync(path.join(__dirname, '..', '\assets', pro));
         }
-    } else {
+    } if(property.avatar.length == 1) {
         fs.unlinkSync(path.join(__dirname, '..', '\assets', property.avatar[0]));
         // console.log(path.join(__dirname,'..','\assets',property.avatar[0]))
     }
+
     let prope = await Property.deleteOne({ _id: req.query.id });
 
     req.flash('success', 'Property removed Successfully');

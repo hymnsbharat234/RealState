@@ -180,8 +180,13 @@
         <div class="intro intro-carousel">
             <div id="carousel" class="owl-carousel owl-theme">
                 <%for(property2 of properties){%>
-                    <%var path = property2.avatar[0].slice(22)%>
+                    
+                    <%if(property2.avatar.length != 0){%>
+                        <%var path = property2.avatar[0].slice(22)%>
                         <div class="carousel-item-a intro-item bg-image" style="background-image: url(/uploads/users/avatars<%=path%>); background-repeat: no-repeat;background-size: cover;">
+                    <%}else{%>
+                        <div class="carousel-item-a intro-item bg-image">
+                        <%}%>
                             <div class=" overlay overlay-a "></div>
                             <div class="intro-content display-table ">
                                 <div class="table-cell ">
@@ -190,16 +195,22 @@
                                             <div class="col-lg-8 ">
                                                 <div class="intro-body ">
                                                     <p class="intro-title-top ">
-                                                        <%=property2.city%> ,
+                                                        <%if(property2.city !=' '){%>
+                                                        <%=property2.city%>
+                                                        <%}%> ,
+                                                        <%if(property2.state !=' '){%>
                                                             <%=property2.state%>
+                                                            <%}%>  
                                                                 <br>
+                                                                <%if(property2.pin !=' '){%>
                                                                 <%=property2.pin%>
+                                                                <%}%>  
                                                     </p>
                                                     <h1 class="intro-title mb-4 " style="font-size: 3rem;">
-                                                        <span class="color-b "><%=property2.address%></span>
+                                                        <span class="color-b ">   <%if(property2.address !=' '){%><%=property2.address%>  <%}%>  </span>
                                                     </h1>
                                                     <p class="intro-subtitle intro-price ">
-                                                        <a href="# "><span class="price-a "><%=property2.type%> | Rs <%=property2.price%></span></a>
+                                                        <a href="# "><span class="price-a ">   <%if(property2.type !=' '){%><%=property2.type%>  <%}%>   | <%if(property2.price !=' '){%> Rs <%=property2.price%><%}%> </span></a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -210,6 +221,7 @@
                         </div>
                         <%}%>
             </div>
+        </div>
         </div>
         <%}%>
             <!--/ Carousel end /-->
@@ -346,23 +358,27 @@
                 <%for(property of advetiserProperty){%>
                     <div class="carousel-item-b">
                         <div class="card-box-a card-shadow" style="height:400px" width:30%;>
+                            <%if(property.avatar.length != 0){%>
                             <div class="img-box-a">
                                 <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class=" img-a img-fluid ">
                             </div>
+                            <%}%>
                             <div class="card-overlay ">
                                 <div class="card-overlay-a-content ">
                                     <div class="card-header-a ">
                                         <h2 class="card-title-a ">
                                             <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%> ">
-                                                <%=property.address%>
+                                                <%if(property.address !=' '){%>
+                                                <%=property.address%><%}%>
                                                     <br />
-                                                    <%=property.city%>
+                                                    <%if(property.city !=' '){%>
+                                                    <%=property.city%><%}%>
                                             </a>
                                         </h2>
                                     </div>
                                     <div class="card-body-a ">
                                         <div class="price-box d-flex ">
-                                            <span class="price-a "><%=property.for%> | Rs <%=property.price%></span>
+                                            <span class="price-a "> <%if(property.for !=' '){%><%=property.for%> <%}%>| <%if(property.price !=' '){%> Rs <%=property.price%><%}%></span>
                                         </div>
                                         <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
@@ -386,10 +402,12 @@
                 </span>
                                                         </li>
                                                         <%}%>
+                                                        <%if((property.rooms) != ''){%>
                                                             <li>
                                                                 <h4 class="card-info-title">BHK</h4>
                                                                 <span><%=property.rooms%></span>
                                                             </li>
+                                                        <%}%>
                                                             <!-- <li>
                                 <h4 class="card-info-title">Bedroom</h4>
                                 <span>4</span>
@@ -434,23 +452,25 @@
                 <%for(property of properties){%>
                     <div class="carousel-item-b">
                         <div class="card-box-a card-shadow" style="height:350px" width:30%;>
+                            <%if(property.avatar.length != 0){%>
                             <div class="img-box-a">
                                 <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class="img-a img-fluid">
                             </div>
+                            <%}%>
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
                                             <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>">
-                                                <%=property.address%>
+                                                <%if(property.address != ' '){%> <%=property.address%><%}%>
                                                     <br />
-                                                    <%=property.city%>
+                                                    <%if(property.city != ' '){%> <%=property.city%><%}%>
                                             </a>
                                         </h2>
                                     </div>
                                     <div class="card-body-a">
                                         <div class="price-box d-flex">
-                                            <span class="price-a"><%=property.for%> | Rs <%=property.price%></span>
+                                            <span class="price-a">  <%if(property.for != ' '){%><%=property.for%><%}%> |   <%if(property.price != ' '){%>Rs <%=property.price%><%}%></span>
                                         </div>
                                         <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
@@ -474,10 +494,12 @@
             </span>
                                                         </li>
                                                         <%}%>
+                                                        <%if((property.rooms) != ''){%>
                                                             <li>
                                                                 <h4 class="card-info-title">BHK</h4>
                                                                 <span><%=property.rooms%></span>
                                                             </li>
+                                                            <%}%>
                                                             <!-- <li>
                         <h4 class="card-info-title">Bedroom</h4>
                         <span>4</span>
@@ -521,23 +543,25 @@
     <%for(property of machines){%>
     <div class="carousel-item-b">
     <div class="card-box-a card-shadow" style="height:400px" width:30%;>
+        <%if(property.avatar.length != 0){%>
     <div class="img-box-a">
-    <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class=" img-a img-fluid ">
+     <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class=" img-a img-fluid ">
     </div>
+    <%}%>
     <div class="card-overlay ">
     <div class="card-overlay-a-content ">
     <div class="card-header-a ">
     <h2 class="card-title-a ">
     <a href="/machinery-single/?id=<%=property._id%> ">
-    <%=property.address%>
+        <%if(property.address != ' '){%><%=property.address%><%}%>
     <br />
-    <%=property.city%>
+    <%if(property.city != ' '){%><%=property.city%><%}%>
     </a>
     </h2>
     </div>
     <div class="card-body-a ">
     <div class="price-box d-flex ">
-    <span class="price-a "><%=property.for%> | Rs <%=property.price%></span>
+    <span class="price-a "> <%if(property.for != ' '){%><%=property.for%><%}%> | <%if(property.price != ' '){%> Rs <%=property.price%><%}%></span>
     </div>
     <a href="/machinery-single/?id=<%=property._id%>" class="link-a">Click here to view
     <span class="ion-ios-arrow-forward"></span>
@@ -547,7 +571,7 @@
     <ul class="card-info d-flex justify-content-around">
     <li>
     <h4 class="card-info-title">Type</h4>
-    <span><%=property.type%></span>
+    <span> <%if(property.type != ' '){%><%=property.type%><%}%></span>
     </li>
 
     <!-- <li>
@@ -600,23 +624,23 @@
     <div class="card-header-d">
     <div class="card-title-d align-self-center">
     <h3 class="title-d">
-   
-    <%=agent.name%>
+        <%if(agent.name != ' '){%>
+    <%=agent.name%><%}%>
     </h3>
     </div>
     </div>
     <div class="card-body-d">
     <p class="content-d color-text-a">
-    <%=agent.subject%>
+        <%if(agent.subject != ' '){%><%=agent.subject%><%}%>
     </p>
     <div class="info-agents color-a">
     <p>
     <strong>Phone: </strong> +91
-    <%=agent.phone%>
+    <%if(agent.phone != ' '){%> <%=agent.phone%><%}%>
     </p>
     <p>
     <strong>Email: </strong>
-    <%=agent.email%>
+    <%if(agent.email != ' '){%><%=agent.email%><%}%>
     </p>
 
     </div>
@@ -624,21 +648,27 @@
     <div class="card-footer-d">
     <div class="socials-footer d-flex justify-content-center">
     <ul class="list-inline">
+        <%if(agent.facebook != ' '){%>
     <li class="list-inline-item">
     <a target="_blank" href="  <%=agent.facebook%>" class="link-one">
     <i class="fa fa-facebook" aria-hidden="true"></i>
     </a>
     </li>
+    <%}%>
+    <%if(agent.twitter!= ' '){%>
     <li class="list-inline-item">
     <a target="_blank" href="  <%=agent.twitter%>" class="link-one">
     <i class="fa fa-twitter" aria-hidden="true"></i>
     </a>
     </li>
+    <%}%>
+    <%if(agent.instagram != ' '){%>
     <li class="list-inline-item">
     <a target="_blank" href="  <%=agent.instagram%>" class="link-one">
     <i class="fa fa-instagram" aria-hidden="true"></i>
     </a>
     </li>
+    <%}%>
 
     </ul>
     </div>
@@ -675,20 +705,22 @@
     <%for(temp of news){%>
     <div class="carousel-item-c">
     <div class="card-box-b card-shadow news-box">
+        <%if(temp.avatar != ' '){%>
     <div class="img-box-b">
     <img src="<%=temp.avatar%>" alt="" class="img-b img-fluid">
     </div>
+    <%}%>
     <div class="card-overlay">
     <div class="card-header-b">
     <div class="card-category-b">
     <a href="#" class="category-b">
-    <%=temp.type%>
+        <%if(temp.avatar != ' '){%> <%=temp.type%><%}%>
     </a>
     </div>
     <div class="card-title-b">
     <h2 class="title-2">
     <a href="#">
-    <%=temp.title%>
+        <%if(temp.avatar != ' '){%> <%=temp.title%><%}%>
     </a>
     </h2>
     </div>
@@ -925,13 +957,13 @@ We're here to help and answer any question you might have.<br>We look forward to
                                             <div id="preloader"></div>
 
                                             <!-- JavaScript Libraries -->
-                                            <script src="lib/jquery/jquery.min.js"></script>
+                                            <script src="lib/jquery/jquery.min.js"></script> -->
                                             <script src="lib/jquery/jquery-migrate.min.js"></script>
                                             <script src="lib/popper/popper.min.js"></script>
                                             <script src="lib/bootstrap/js/bootstrap.min.js"></script>
                                             <script src="lib/easing/easing.min.js"></script>
                                             <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-                                            <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+                                            <script src="lib/scrollreveal/scrollreveal.min.js"></script> -->
                                             <!-- Contact Form JavaScript File -->
                                             <script src="contactform/contactform.js"></script>
 

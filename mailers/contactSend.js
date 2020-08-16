@@ -4,11 +4,11 @@ const path = require('path');
 exports.newContact = (user) => {
     let htmlString = nodeMailer.renderTemplate({
         user: user
-    }, '/advertiser/advertisement.ejs');
+    }, '/advertiser/contact.ejs');
 
     nodeMailer.transporter.sendMail({
         from: 'SRConstruction',
-        to: 'hymnsbharat2019@gmail.com',
+        to: 'himalayshankar31@gmail.com',
         subject: "SRConstruction Alerts",
         html: htmlString
     }, (err, info) => {
