@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
-    <title>SRXConstruction </title>
+    <title>SRXconstruction </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -122,7 +121,7 @@
             <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link " href="/">Home</a>
+                        <a class="nav-link active" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>
@@ -261,7 +260,7 @@
                         </div> -->
                             </div>
                         </div>
-
+                       
                         <div class="col-md-4">
                             <div class="card-box-c foo">
                                 <div class="card-header-c d-flex">
@@ -303,7 +302,7 @@
                                     <a href="/agent-single" class="link-c link-icon">Read more
                 <span class="ion-ios-arrow-forward"></span>
               </a>
-                                </div>
+                     </div>
                             </div>
                         </div>
 
@@ -323,7 +322,7 @@
                                         We provide you for the advertisment of your product through our website with cheaper cost.
                                     </p>
                                 </div>
-
+                                
                                 <div class="card-footer-c">
                                     <a href="/property-grid" class="link-c link-icon">Read more
                 <span class="ion-ios-arrow-forward"></span>
@@ -331,23 +330,23 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
-            </section>
-            <!--/ Services End /-->
+            </div>
+</section>
+<!--/ Services End /-->
 
-            <!--/ Services End /-->
-            <%if(advetiserProperty.length !=0){%>
-                <section class="section-property section-t8">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="title-wrap d-flex justify-content-between">
-                                    <div class="title-box">
-                                        <h2 class="title-a" style="font-size: 2.5rem;">Premium Properties</h2>
-                                    </div>
-                                    <div class="title-link">
-                                        <a href="/property-grid/?type=premium">All Property
+<!--/ Services End /-->
+<%if(advetiserProperty.length !=0){%>
+    <section class="section-property section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a" style="font-size: 2.5rem;">Premium Properties</h2>
+                        </div>
+                        <div class="title-link">
+                            <a href="/property-grid/?type=premium">All Property
     <span class="ion-ios-arrow-forward"></span>
     </a>
                         </div>
@@ -380,39 +379,24 @@
                                         <div class="price-box d-flex ">
                                             <span class="price-a "> <%if(property.for !=' '){%><%=property.for%> <%}%>| <%if(property.price !=' '){%> Rs <%=property.price%><%}%></span>
                                         </div>
-                                        <div class="card-overlay ">
-                                            <div class="card-overlay-a-content ">
-                                                <div class="card-header-a ">
-                                                    <h2 class="card-title-a ">
-                                                        <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%> ">
-                                                            <%=property.address%>
-                                                                <br />
-                                                                <%=property.city%>
-                                                        </a>
-                                                    </h2>
-                                                </div>
-                                                <div class="card-body-a ">
-                                                    <div class="price-box d-flex ">
-                                                        <span class="price-a "><%=property.for%> | Rs <%=property.price%></span>
-                                                    </div>
-                                                    <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>" class="link-a">Click here to view
+                                        <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
                                             </a>
-                                                </div>
-                                                <div class="card-footer-a">
-                                                    <ul class="card-info d-flex justify-content-around">
-                                                        <%if((property.area) != ''){%>
-                                                            <li>
-                                                                <h4 class="card-info-title">Area</h4>
-                                                                <span><%=property.area%>
+                                    </div>
+                                    <div class="card-footer-a">
+                                        <ul class="card-info d-flex justify-content-around">
+                                            <%if((property.area) != ''){%>
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span><%=property.area%>
                 <!-- <sup>2</sup> -->
                 </span>
-                                                            </li>
-                                                            <%}%>
-                                                                <%if((property.amenities) != ''){%>
-                                                                    <li>
-                                                                        <h4 class="card-info-title">Amenities</h4>
-                                                                        <span><%=property.amenities[0]%>
+                                                </li>
+                                                <%}%>
+                                                    <%if((property.amenities) != ''){%>
+                                                        <li>
+                                                            <h4 class="card-info-title">Amenities</h4>
+                                                            <span><%=property.amenities[0]%>
                 <!-- <sup>2</sup> -->
                 </span>
                                                         </li>
@@ -431,32 +415,30 @@
                                 <h4 class="card-info-title">Garages</h4>
                                 <span>1</span>
                             </li> -->
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </ul>
                                     </div>
                                 </div>
-
-                                <%}%>
-
+                            </div>
                         </div>
                     </div>
-                </section>
-                <%}%>
+                    <%}%>
+            </div>
+        </div>
+    </section>
+<%}%>
 
                     <!--/ Property Star /-->
-                    <%if(properties.length !=0){%>
-                        <section class="section-property section-t8">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="title-wrap d-flex justify-content-between">
-                                            <div class="title-box">
-                                                <h2 class="title-a" style="font-size: 2.5rem;">Latest Properties</h2>
-                                            </div>
-                                            <div class="title-link">
-                                                <a href="/property-grid">All Property
+<%if(properties.length !=0){%>
+    <section class="section-property section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a" style="font-size: 2.5rem;">Latest Properties</h2>
+                        </div>
+                        <div class="title-link">
+                            <a href="/property-grid">All Property
     <span class="ion-ios-arrow-forward"></span>
     </a>
                         </div>
@@ -487,48 +469,24 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">  <%if(property.for != ' '){%><%=property.for%><%}%> |   <%if(property.price != ' '){%>Rs <%=property.price%><%}%></span>
                                         </div>
-                                    </div>
-                                </div>
-                                <div id="property-carousel" class="owl-carousel owl-theme">
-                                    <%for(property of properties){%>
-                                        <div class="carousel-item-b">
-                                            <div class="card-box-a card-shadow" style="height:350px" width:30%;>
-                                                <div class="img-box-a">
-                                                    <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class="img-a img-fluid">
-                                                </div>
-                                                <div class="card-overlay">
-                                                    <div class="card-overlay-a-content">
-                                                        <div class="card-header-a">
-                                                            <h2 class="card-title-a">
-                                                                <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>">
-                                                                    <%=property.address%>
-                                                                        <br />
-                                                                        <%=property.city%>
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="card-body-a">
-                                                            <div class="price-box d-flex">
-                                                                <span class="price-a"><%=property.for%> | Rs <%=property.price%></span>
-                                                            </div>
-                                                            <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>" class="link-a">Click here to view
+                                        <a href="/property-single/?id=<%=property._id%>&type=<%=property.premium%>" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
                                             </a>
-                                                        </div>
-                                                        <div class="card-footer-a">
-                                                            <ul class="card-info d-flex justify-content-around">
-                                                                <%if((property.area) != ''){%>
-                                                                    <li>
-                                                                        <h4 class="card-info-title">Area</h4>
-                                                                        <span><%=property.area%>
+                                    </div>
+                                    <div class="card-footer-a">
+                                        <ul class="card-info d-flex justify-content-around">
+                                            <%if((property.area) != ''){%>
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span><%=property.area%>
         <!-- <sup>2</sup> -->
         </span>
-                                                                    </li>
-                                                                    <%}%>
-                                                                        <%if((property.amenities) != ''){%>
-                                                                            <li>
-                                                                                <h4 class="card-info-title">Amenities</h4>
-                                                                                <span><%=property.amenities[0]%>
+                                                </li>
+                                                <%}%>
+                                                    <%if((property.amenities) != ''){%>
+                                                        <li>
+                                                            <h4 class="card-info-title">Amenities</h4>
+                                                            <span><%=property.amenities[0]%>
             <!-- <sup>2</sup> -->
             </span>
                                                         </li>
@@ -547,31 +505,29 @@
                         <h4 class="card-info-title">Garages</h4>
                         <span>1</span>
                     </li> -->
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <%}%>
-
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </section>
-                        <%}%>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+        </div>
+    </section>
+<%}%>
                             <!--/ Property End /-->
-                            <%if(machines.length !=0){%>
-                                <section class="section-property section-t8">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="title-wrap d-flex justify-content-between">
-                                                    <div class="title-box">
-                                                        <h2 class="title-a" style="font-size: 2.5rem;">Our Machineries</h2>
-                                                    </div>
-                                                    <div class="title-link">
-                                                        <a href="/rent-machinery">All machineries
+<%if(machines.length !=0){%>
+    <section class="section-property section-t8">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <div class="title-wrap d-flex justify-content-between">
+    <div class="title-box">
+    <h2 class="title-a" style="font-size: 2.5rem;">Our Machineries</h2>
+    </div>
+    <div class="title-link">
+    <a href="/rent-machinery">All machineries
     <span class="ion-ios-arrow-forward"></span>
     </a>
     </div>
@@ -612,7 +568,6 @@
     <h4 class="card-info-title">Type</h4>
     <span> <%if(property.type != ' '){%><%=property.type%><%}%></span>
     </li>
-
     <!-- <li>
     <h4 class="card-info-title">Bedroom</h4>
     <span>4</span>
@@ -621,31 +576,29 @@
     <h4 class="card-info-title">Garages</h4>
     <span>1</span>
     </li> -->
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <%}%>
-
-                                        </div>
-                                    </div>
-                                </section>
-                                <%}%>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <%}%>
+    </div>
+    </div>
+    </section>
+<%}%>
                                     <!--/ Agents Star /-->
-                                    <%if(agents.length !=0){%>
-                                        <section class="section-agents section-t8">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="title-wrap d-flex justify-content-between">
-                                                            <div class="title-box">
-                                                                <h2 class="title-a" style="font-size: 2.5rem;">Best Agents</h2>
-                                                            </div>
-                                                            <div class="title-link">
-                                                                <a href="/agents-grid">All Agents
+<%if(agents.length !=0){%>
+    <section class="section-agents section-t8">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <div class="title-wrap d-flex justify-content-between">
+    <div class="title-box">
+    <h2 class="title-a" style="font-size: 2.5rem;">Best Agents</h2>
+    </div>
+    <div class="title-link">
+    <a href="/agents-grid">All Agents
     <span class="ion-ios-arrow-forward"></span>
     </a>
     </div>
@@ -681,7 +634,6 @@
     <strong>Email: </strong>
     <%if(agent.email != ' '){%><%=agent.email%><%}%>
     </p>
-
     </div>
     </div>
     <div class="card-footer-d">
@@ -708,7 +660,6 @@
     </a>
     </li>
     <%}%>
-
     </ul>
     </div>
     </div>
@@ -853,7 +804,7 @@ think your company have a superpower around making our future dream. "Thanks a l
 <div class="col-sm-12 col-md-4">
 <div class="widget-a">
 <div class="w-header-a">
-<h3 class="w-title-a text-brand">SRConstruction</h3>
+<h3 class="w-title-a text-brand">SRXConstruction</h3>
 </div>
 <div class="w-body-a">
 <p class="w-text-a color-text-a">
@@ -863,7 +814,7 @@ We're here to help and answer any question you might have.<br>We look forward to
 <div class="w-footer-a">
 <ul class="list-unstyled">
 <li class="color-a">
-<span class="color-text-a">Phone .</span> Srconstruction20gmail.com</li>
+<span class="color-text-a">Phone .</span> Srconstruction122@gmail.com</li>
 <li class="color-a">
 <span class="color-text-a">Email .</span> +91 9304698511</li>
 </ul>
