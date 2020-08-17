@@ -3,25 +3,24 @@ const ejs = require('ejs');
 const path = require('path');
 
 let transporter = nodemailer.createTransport({
-    service:'gmail',
-    host:'smtp.gmail.com',
-    port:587,
-    secure:false,
-    auth:{
-        user:'himalayshankar31@gmail.com',
-        pass:'Nixxit@12345'
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+        user: 'srconstruction122@gmail.com',
+        pass: 'Love143@'
     }
 });
 
-let renderTemplate = (data,relativepath) => {
+let renderTemplate = (data, relativepath) => {
     let mailHtml;
     ejs.renderFile(
-        path.join(__dirname,'../views/mailers',relativepath),
+        path.join(__dirname, '../views/mailers', relativepath),
         data,
-        function(err,template){
-            if(err)
-            {
-                console.log('Error in rendering ejs Html',err);
+        function(err, template) {
+            if (err) {
+                console.log('Error in rendering ejs Html', err);
                 return;
             }
 
@@ -32,7 +31,7 @@ let renderTemplate = (data,relativepath) => {
     return mailHtml;
 }
 
-module.exports ={
+module.exports = {
     renderTemplate: renderTemplate,
-    transporter :transporter
-}  
+    transporter: transporter
+}

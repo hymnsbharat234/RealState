@@ -251,7 +251,7 @@ module.exports.AddAdvertise = async function(req, res) {
 
     let advertiser = await Advertise.create(req.body);
     advertiser.type = 'advertisement';
-    advertiserMailer.newAdvertisement(advertiser);
+    contactMailer.newContact(advertiser);
     req.flash('success', 'Advertise updated');
     return res.redirect('back');
 }

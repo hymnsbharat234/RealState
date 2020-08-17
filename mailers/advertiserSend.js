@@ -9,7 +9,7 @@ exports.newAdvertisement = (user, property) => {
 
     nodeMailer.transporter.sendMail({
         from: 'SRConstruction',
-        to: 'hymnsbharat2019@gmail.com',
+        to: 'srconstruction122@gmail.com',
         subject: "SRConstruction Alerts",
         html: htmlString,
         attachments: [{

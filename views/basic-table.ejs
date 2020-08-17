@@ -58,21 +58,20 @@
                         <!-- Logo text image you can use text also -->
                         <span class="hidden-xs">
                             <span><h2 style="margin-left: 15px;">Admin Panel</h2></span>
-                            <!--This is dark logo text-->
-                            <!-- <img src="plugins/images/admin-text.png" alt="home" class="dark-logo" /> -->
-                            <!--This is light logo text-->
-                            <!-- <img src="plugins/images/admin-text-dark.png" alt="home" class="light-logo" /> -->
-                        </span> 
+                        <!--This is dark logo text-->
+                        <!-- <img src="plugins/images/admin-text.png" alt="home" class="dark-logo" /> -->
+                        <!--This is light logo text-->
+                        <!-- <img src="plugins/images/admin-text-dark.png" alt="home" class="light-logo" /> -->
+                        </span>
                     </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
+                        <a class="nav-link " href="/">Home</a>
                     </li>
                     <li>
-                        <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
-                            href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                        <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
                     <li>
                         <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
@@ -80,8 +79,7 @@
                                     class="fa fa-search"></i></a> </form>
                     </li>
                     <li>
-                        <a class="profile-pic" href="#"> <img src="/img/profilepic.jpg" alt="user-img"
-                                width="36" class="img-circle"><b class="hidden-xs">Admin</b></a>
+                        <a class="profile-pic" href="#"> <img src="/img/profilepic.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Admin</b></a>
                     </li>
                 </ul>
             </div>
@@ -96,8 +94,7 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
-                    <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span
-                            class="hide-menu">Navigation</span></h3>
+                    <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
                 </div>
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
@@ -112,9 +109,9 @@
                         <a href="/basic-table" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i>Users Connected</a>
                     </li>
-                   
+
                 </ul>
-                
+
             </div>
         </div>
         <!-- ============================================================== -->
@@ -130,8 +127,7 @@
                         <h4 class="page-title">Basic Table</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                        <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank"
-                            class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Upgrade
+                        <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Upgrade
                             to Pro
 
                         </a>
@@ -144,49 +140,61 @@
                 </div>
                 <!-- /row -->
                 <%if(users.length !=0){%>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="white-box">
-                            <h3 class="box-title">Basic Table</h3>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Subject</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%var i=0;for(user of users){i++;%>
-                                        <tr>
-                                            <td><%=i%></td>
-                                            <td><%=user.name%></td>
-                                            <td><%=user.email%></td>
-                                            <td><%=user.phone%></td>
-                                            <td><%=user.subject%></td>
-                                        </tr>
-                                        <%}%>
-                                    </tbody>
-                                </table>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Basic Table</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>Subject</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%var i=0;for(user of users){i++;%>
+                                                <tr>
+                                                    <td>
+                                                        <%=i%>
+                                                    </td>
+                                                    <td>
+                                                        <%=user.name%>
+                                                    </td>
+                                                    <td>
+                                                        <%=user.email%>
+                                                    </td>
+                                                    <td>
+                                                        <%=user.phone%>
+                                                    </td>
+                                                    <td>
+                                                        <%=user.subject%>
+                                                    </td>
+                                                </tr>
+                                                <%}%>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <%}else{%>
-                    <div class="container">
-                    <h3 style="padding:0px 20px;">No one contacted Yet.</h3>
-                    </div>
-                    <%}%>
-                <!-- /.row -->
+                    <%}else{%>
+                        <div class="container">
+                            <h3 style="padding:0px 20px;">No one contacted Yet.</h3>
+                        </div>
+                        <%}%>
+                            <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"><p class="copyright color-text-a">
-                &copy; Copyright
-                <span class="color-a">Hymnsbharat</span> All Rights Reserved.
-            </p></footer>
+            <footer class="footer text-center">
+                <p class="copyright color-text-a">
+                    &copy; Copyright
+                    <span class="color-a">Hymnsbharat</span> All Rights Reserved.
+                </p>
+            </footer>
         </div>
         <!-- /#page-wrapper -->
     </div>
