@@ -4,7 +4,7 @@ const path = require('path');
 exports.newContact = (user) => {
     let htmlString = nodeMailer.renderTemplate({
         user: user
-    }, '/advertiser/advertisement.ejs');
+    }, '/advertiser/contact.ejs');
 
     nodeMailer.transporter.sendMail({
         from: 'SRConstruction',

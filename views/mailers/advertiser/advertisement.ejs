@@ -9,52 +9,49 @@
         <%if(user.type == 'advertisement'){%>
             <p>You have recieved an advertisement for <strong>Rent/Sell</strong> for the properties.</p>
             <%}%>
-                <%if(user.type == 'contact'){%>
-                    <p>Some is trying to contact you on your website.</p>
+                <%if(user.type == 'false' || user.type == 'true'){%>
+                    <p>Someone is interested in your properties.The property is listed below:</p>
+                    <p>Address:
+                        <%=property.address%>,
+                            <%=property.city%>
+                    </p>
+                    <p>Price: Rs
+                        <%=property.price%>
+                    </p>
+                    <img src="cid:logo" alt="image" style="height: 300px;">
                     <%}%>
-                        <%if(user.type == 'false' || user.type == 'true'){%>
-                            <p>Someone is interested in your properties.The property is listed below:</p>
+                        <%if(user.type == 'machine'){%>
+                            <p>Someone is interested in your Rent machineries.The Machine is listed below:</p>
                             <p>Address:
                                 <%=property.address%>,
                                     <%=property.city%>
                             </p>
+                            <p>Type:
+                                <%=property.type%>
+                            </p>
                             <p>Price: Rs
                                 <%=property.price%>
                             </p>
-                            <img src="cid:logo" alt="image" style="height: 200px;width:300px">
+                            <img src="cid:logo" alt="" style="height: 300px;">
                             <%}%>
-                                <%if(user.type == 'machine'){%>
-                                    <p>Someone is interested in your Rent machineries.The Machine is listed below:</p>
-                                    <p>Address:
-                                        <%=property.address%>,
-                                            <%=property.city%>
-                                    </p>
-                                    <p>Type:
-                                        <%=property.type%>
-                                    </p>
-                                    <p>Price: Rs
-                                        <%=property.price%>
-                                    </p>
-                                    <img src="cid:logo" alt="" style="height: 200px;width:300px">
-                                    <%}%>
-                                        <p>The Contact details of the person are here:</p>
-                                        <p>Name:
-                                            <%=user.name%>
-                                        </p>
-                                        <p>Email:
-                                            <%=user.email%>
-                                        </p>
-                                        <p>Phone:
-                                            <%=user.phone%>
-                                        </p>
-                                        <p>Subject:
-                                            <%=user.subject%>
-                                        </p>
-                                        <p>Message:
-                                            <%=user.message%>
-                                        </p>
-                                        <br>
-                                        <p>Thanks</p>
+                                <p>The Contact details of the person are here:</p>
+                                <p>Name:
+                                    <%=user.name%>
+                                </p>
+                                <p>Email:
+                                    <%=user.email%>
+                                </p>
+                                <p>Phone:
+                                    <%=user.phone%>
+                                </p>
+                                <p>Subject:
+                                    <%=user.subject%>
+                                </p>
+                                <p>Message:
+                                    <%=user.message%>
+                                </p>
+                                <br>
+                                <p>Thanks</p>
     </div>
 </body>
 
