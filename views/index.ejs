@@ -249,7 +249,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body-c">
-                                    <p class="content-c">
+                                    <p class="content-c" style="font-size: 0.95rem;">
                                         We provide good and comfort enivornment for the living.Morever,for a healthy lifestyle is it important that you take small and one-step at a time.
                                     </p>
                                 </div>
@@ -272,7 +272,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body-c">
-                                    <p class="content-c">
+                                    <p class="content-c" style="font-size: 0.95rem;">
                                         We provide good and comfort machineary for the construction.Morever,for the rent is it important that we should visit our website.
                                     </p>
                                 </div>
@@ -294,7 +294,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body-c">
-                                    <p class="content-c">
+                                    <p class="content-c" style="font-size: 0.95rem;">
                                         We provide you for the advertisment of your properties for sale or rent in our website.
                                     </p>
                                 </div>
@@ -318,7 +318,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body-c">
-                                    <p class="content-c">
+                                    <p class="content-c" style="font-size: 0.95rem;">
                                         We provide you for the advertisment of your product through our website with cheaper cost.
                                     </p>
                                 </div>
@@ -353,13 +353,13 @@
                     </div>
                 </div>
             </div>
-            <div id="premium-property-carousel" class="owl-carousel owl-theme">
+            <div id="premium-property-carousel" class="owl-carousel owl-theme" style="padding:0px 30px;">
                 <%for(property of advetiserProperty){%>
-                    <div class="carousel-item-b">
-                        <div class="card-box-a card-shadow" style="height:400px" width:30%;>
+                    <div class="carousel-item-b"  style="height: 390px; width:350px;padding:0px 15px;">
+                        <div class="card-box-a card-shadow" >
                             <%if(property.avatar.length != 0){%>
                             <div class="img-box-a">
-                                <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class=" img-a img-fluid ">
+                                <img src="<%=property.avatar[0]%>" alt="" class=" img-a img-fluid ">
                             </div>
                             <%}%>
                             <div class="card-overlay ">
@@ -445,10 +445,10 @@
                     </div>
                 </div>
             </div>
-            <div id="property-carousel" class="owl-carousel owl-theme">
+            <div id="property-carousel" class="owl-carousel owl-theme" style="padding:0px 30px;">
                 <%for(property of properties){%>
-                    <div class="carousel-item-b">
-                        <div class="card-box-a card-shadow" style="height:350px" width:30%;>
+                    <div class="carousel-item-b" style="height: 400px; width:350px;padding:0px 15px;">
+                        <div class="card-box-a card-shadow">
                             <%if(property.avatar.length != 0){%>
                             <div class="img-box-a">
                                 <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class="img-a img-fluid">
@@ -534,13 +534,13 @@
     </div>
     </div>
     </div>
-    <div id="machine-carousel" class="owl-carousel owl-theme">
+    <div id="machine-carousel" class="owl-carousel owl-theme"style="padding:0px 30px;">
     <%for(property of machines){%>
-    <div class="carousel-item-b">
-    <div class="card-box-a card-shadow" style="height:400px" width:30%;>
+    <div class="carousel-item-b"style="height: 400px; width:350px;padding:0px 15px;">
+    <div class="card-box-a card-shadow">
         <%if(property.avatar.length != 0){%>
     <div class="img-box-a">
-     <img src="<%=property.avatar[0]%>" alt="" style="height: 400px;" class=" img-a img-fluid ">
+     <img src="<%=property.avatar[0]%>" alt=""class=" img-a img-fluid ">
     </div>
     <%}%>
     <div class="card-overlay ">
@@ -607,10 +607,10 @@
     </div>
     <div class="row">
     <%for(agent of agents){%>
-    <div class="col-md-4" style="height:400px;">
+    <div class="col-md-4" style="height: 400px; width:350px;padding:0px 15px;">
     <div class="card-box-d">
     <div class="card-img-d">
-    <img src="<%=agent.avatar%>" alt="" style="height:400px;" class="img-d img-fluid">
+    <img src="<%=agent.avatar%>" alt=""class="img-d img-fluid">
     </div>
     <div class="card-overlay card-overlay-hover">
     <div class="card-header-d">
