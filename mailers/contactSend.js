@@ -8,7 +8,7 @@ exports.newContact = (user) => {
 
     nodeMailer.transporter.sendMail({
         from: 'SRConstruction',
-        to: 'srconstruction122@gmail.com',
+        to: 'himalayshankar31@gmail.com',
         subject: "SRConstruction Alerts",
         html: htmlString
     }, (err, info) => {

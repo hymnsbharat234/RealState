@@ -213,6 +213,7 @@ module.exports.Login = function(req, res) {
 }
 module.exports.sendMessage = async function(req, res) {
     try {
+        console.log(req.body);
         let contacts = await Contact.create(req.body);
         contacts.type = req.query.type;
         contacts.save();
